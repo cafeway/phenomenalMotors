@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import { Card, CardContent, CardHeader, Checkbox, FormControlLabel, Grid, InputAdornment, Tab, Tabs, Typography } from '@mui/material';
 import FormGroup from '@mui/material/FormGroup';
 import Button from '@mui/material/Button';
-import { AccountCircleOutlined, Login, Mail, Sell, ShoppingCart, Storefront, Visibility, WidthFull } from '@mui/icons-material';
+import { AccountCircleOutlined, HowToReg, LocalGasStation, Login, LoginOutlined, Mail, Sell, ShoppingCart, Storefront, Visibility, WidthFull } from '@mui/icons-material';
 import {  Router } from 'react-router-dom';
 import Link from '@mui/material/Link';
 export default function FormPropsTextFields() {
@@ -26,8 +26,8 @@ export default function FormPropsTextFields() {
             title={
                 <>
                     <Stack direction='row' justifyContent='center'>
-                        <AccountCircleOutlined fontSize='large' color='success'></AccountCircleOutlined>
-                        
+                       
+                        <LocalGasStation  sx={{width:'70px',height:'70px'}} color='primary'></LocalGasStation>
                     </Stack>
                     <Stack direction='row' justifyContent='center'>
                         <Typography variant='body3' fontSize={20}>WELCOME</Typography>
@@ -83,12 +83,12 @@ export default function FormPropsTextFields() {
                   
                  
                     <Grid item xs={12}>
-                        <Button variant='contained' type='submit' color='primary' fullWidth>Login</Button>
+                        <Button variant='contained' type='submit' color='primary' startIcon={<LoginOutlined/>} fullWidth>Login</Button>
                     </Grid>
                     <Grid item xs={12} sx={{marginBottom: '5px'}}>
                     <Grid item xs={12}>
-                        
-                       <Link underline='none' href="/register">Dont have an account? Sign Up</Link>
+                        <Button variant='outlined' fullWidth  href='/register' startIcon={<HowToReg/>}>Dont have an account? Sign Up</Button>
+                      
                     </Grid>
                </Grid>
                 </Grid>
