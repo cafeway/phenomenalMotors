@@ -5,7 +5,8 @@ import { Card, CardContent, CardHeader, Checkbox, FormControlLabel, Grid, InputA
 import FormGroup from '@mui/material/FormGroup';
 import Button from '@mui/material/Button';
 import { AccountCircleOutlined, Login, Mail, Sell, ShoppingCart, Storefront, Visibility, WidthFull } from '@mui/icons-material';
-import { Link, Router } from 'react-router-dom';
+import {  Router } from 'react-router-dom';
+import Link from '@mui/material/Link';
 export default function FormPropsTextFields() {
 
     // choosing betweenvendor and customer
@@ -38,9 +39,9 @@ export default function FormPropsTextFields() {
             }
             subheader={
                 <Stack direction='row' justifyContent='center'>
-                    <Tabs value={mode} onChange={handleModeToggle} color='action' indicatorColor='action'>
-                        <Tab value='vendor' label="Vendor" icon={<Storefront/>}/>
-                        <Tab value='customer' label="Customer" icon={<ShoppingCart/>} iconPosition='right'/>
+                    <Tabs value={mode} onChange={handleModeToggle} textColor="primary" indicatorColor='action'>
+                        <Tab value='vendor' variant='outlined' label="Vendor" icon={<Storefront/>} iconPosition='start'/>
+                        <Tab value='customer' label="Customer" icon={<ShoppingCart/>} iconPosition='start'/>
                     </Tabs>
                 </Stack>
             }
@@ -57,11 +58,11 @@ export default function FormPropsTextFields() {
             </Stack>
             
             </Stack>
-                <Grid container spacing={1} marginTop={3}>
+                <Grid container spacing={1} marginTop={0}>
                     <Grid item xs={12} sx={{marginBottom:'10px'}}>
                     <TextField id="Email" autoFocus='true'
                     InputProps={{
-                        startAdornment: <InputAdornment position='start'>
+                        endAdornment: <InputAdornment position='start'>
                             <Mail color='primary'></Mail>
                         </InputAdornment>
                     }}
@@ -79,19 +80,17 @@ export default function FormPropsTextFields() {
                         </Visibility>
                     </InputAdornment>}} label="Password" fullWidth required placeholder='Password*'></TextField>
                     </Grid>
+                  
+                 
+                    <Grid item xs={12}>
+                        <Button variant='contained' type='submit' color='primary' fullWidth>Login</Button>
+                    </Grid>
                     <Grid item xs={12} sx={{marginBottom: '5px'}}>
-                   
-                        <FormGroup sx={{marginLeft:'7px'}}>
-                            <FormControlLabel control={<Checkbox defaultChecked />} label="I want to receive inspiration, marketing promotions and updates via email." />
-                            
-                        </FormGroup>
-                    </Grid>
                     <Grid item xs={12}>
-                       <Link to='/signUp'>Sign Up</Link>
+                        
+                       <Link underline='none' href="/register">Dont have an account?</Link>
                     </Grid>
-                    <Grid item xs={12}>
-                        <Button variant='contained' type='submit' color='success' fullWidth>Login</Button>
-                    </Grid>
+               </Grid>
                 </Grid>
             
             </CardContent>
