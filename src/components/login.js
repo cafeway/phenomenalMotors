@@ -8,8 +8,13 @@ import { AccountCircleOutlined, Login, Mail, Visibility, WidthFull } from '@mui/
 import { Link, Router } from 'react-router-dom';
 export default function FormPropsTextFields() {
 
-    
-    const [value,setValue] = React.useState('customer');
+    // choosing betweenvendor and customer
+    const [mode,setMode] = React.useState('customer');
+
+    // handling toggling the tabs
+    const handleModeToggle = (event,mode) => {
+        setMode(mode);
+    }
   return (
 
         <form style={{marginTop:'0px'}}>
@@ -33,7 +38,7 @@ export default function FormPropsTextFields() {
             }
             subheader={
                 <Stack direction='row' justifyContent='center'>
-                    <Tabs value={value}>
+                    <Tabs value={mode}>
                         <Tab value='vendor' label="Vendor"/>
                         <Tab value='customer' label="Customer"/>
                     </Tabs>
