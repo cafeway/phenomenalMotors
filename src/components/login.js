@@ -88,7 +88,7 @@ export default function FormPropsTextFields() {
                     <Grid item xs={12} sx={{marginBottom: '5px'}}>
                     <Grid item xs={12}>
                         
-                       <Link underline='none' href="/register">Dont have an account?</Link>
+                       <Link underline='none' href="/register">Dont have an account? Sign Up</Link>
                     </Grid>
                </Grid>
                 </Grid>
