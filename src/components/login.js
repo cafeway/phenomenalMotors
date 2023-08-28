@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import { Card, CardContent, CardHeader, Checkbox, FormControlLabel, Grid, InputAdornment, Tab, Tabs, Typography } from '@mui/material';
 import FormGroup from '@mui/material/FormGroup';
 import Button from '@mui/material/Button';
-import { AccountCircleOutlined, Login, Mail, Visibility, WidthFull } from '@mui/icons-material';
+import { AccountCircleOutlined, Login, Mail, Sell, ShoppingCart, Storefront, Visibility, WidthFull } from '@mui/icons-material';
 import { Link, Router } from 'react-router-dom';
 export default function FormPropsTextFields() {
 
@@ -38,9 +38,9 @@ export default function FormPropsTextFields() {
             }
             subheader={
                 <Stack direction='row' justifyContent='center'>
-                    <Tabs value={mode} onChange={handleModeToggle}>
-                        <Tab value='vendor' label="Vendor"/>
-                        <Tab value='customer' label="Customer"/>
+                    <Tabs value={mode} onChange={handleModeToggle} color='action' indicatorColor='action'>
+                        <Tab value='vendor' label="Vendor" icon={<Storefront/>}/>
+                        <Tab value='customer' label="Customer" icon={<ShoppingCart/>} iconPosition='right'/>
                     </Tabs>
                 </Stack>
             }
