@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Box from '@mui/material/Box';
-import Form from './form';
+import Register from './components/register';
 import Dashboard from './dashboard';
 import Login from './components/login';
 import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
@@ -29,7 +29,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path='/login' element={<Login/>} ></Route>
-          <Route exact path='/register' element={<Form/>}></Route>
+          <Route exact path='/register' element={<Register/>}></Route>
         </Routes>
       </Router>
     </Box>
