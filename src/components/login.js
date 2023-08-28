@@ -1,36 +1,59 @@
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
-import { Avatar, Card, CardContent, CardHeader, Checkbox, FormControlLabel, Grid, InputAdornment, Typography } from '@mui/material';
-import LockIcon from '@mui/icons-material/Lock';
+import { Card, CardContent, CardHeader, Checkbox, FormControlLabel, Grid, InputAdornment, Tab, Tabs, Typography } from '@mui/material';
 import FormGroup from '@mui/material/FormGroup';
 import Button from '@mui/material/Button';
-import { Login, Mail, Visibility, WidthFull } from '@mui/icons-material';
+import { AccountCircleOutlined, Login, Mail, Visibility, WidthFull } from '@mui/icons-material';
 import { Link, Router } from 'react-router-dom';
 export default function FormPropsTextFields() {
-    const [count,setCount] = React.useState(0);
+
+    
+    const [value,setValue] = React.useState('customer');
   return (
 
-        <form style={{marginTop:'30px'}}>
+        <form style={{marginTop:'0px'}}>
            
         
-        <Card style={{maxWidth:450,margin:"auto auto",padding:"20px 5px"}}>
-            <CardHeader
-            action= {
-               <p>{count}</p>
+        <Card style={{maxWidth:450,padding:"20px 5px",marginLeft:'auto',marginRight:'auto',marginTop:'30px',marginBottom:'auto'}}>
+           <CardHeader
+            title={
+                <>
+                    <Stack direction='row' justifyContent='center'>
+                        <AccountCircleOutlined fontSize='large' color='success'></AccountCircleOutlined>
+                        
+                    </Stack>
+                    <Stack direction='row' justifyContent='center'>
+                        <Typography variant='body3' fontSize={20}>WELCOME</Typography>
+                    </Stack>
+                
+                </>
+                
+                
             }
-            />
+            subheader={
+                <Stack direction='row' justifyContent='center'>
+                    <Tabs value={value}>
+                        <Tab value='vendor' label="Vendor"/>
+                        <Tab value='customer' label="Customer"/>
+                    </Tabs>
+                </Stack>
+            }
+           />
             <CardContent>
             <Stack direction='row'  justifyContent='center'>
             <Stack spacing={1}>
-            <Typography variant='body3' fontSize={20}>lOGIN</Typography>
-              
-                <Login fontSize='large' sx={{color:'orange',paddingLeft:'10px'}} ></Login>
+           
+           
+            
+            
+           
+           
+            </Stack>
             
             </Stack>
-            </Stack>
                 <Grid container spacing={1} marginTop={3}>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} sx={{marginBottom:'10px'}}>
                     <TextField id="Email" autoFocus='true'
                     InputProps={{
                         startAdornment: <InputAdornment position='start'>
@@ -38,18 +61,18 @@ export default function FormPropsTextFields() {
                         </InputAdornment>
                     }}
                     type='email' 
-                    label="Email"
+                    label="Email / Phone"
                     fullWidth
                     required
-                    placeholder='Fill in Email'>
+                    placeholder='Email/Phone'>
                     </TextField>
                     </Grid>
                     <Grid item xs={12} sx={{marginBottom: '5px'}}>
-                    <TextField id="Password" type='password'  InputProps={{startAdornment: <InputAdornment position='start'>
+                    <TextField id="Password" type='password'  InputProps={{endAdornment: <InputAdornment position='start'>
                         <Visibility color='primary'>
 
                         </Visibility>
-                    </InputAdornment>}} label="Password" fullWidth required placeholder='************'></TextField>
+                    </InputAdornment>}} label="Password" fullWidth required placeholder='Password*'></TextField>
                     </Grid>
                     <Grid item xs={12} sx={{marginBottom: '5px'}}>
                    
@@ -62,7 +85,7 @@ export default function FormPropsTextFields() {
                        <Link to='/signUp'>Sign Up</Link>
                     </Grid>
                     <Grid item xs={12}>
-                        <Button variant='contained' onClick={()=>setCount(count+1)} type='submit' color='success' fullWidth>Login</Button>
+                        <Button variant='contained' type='submit' color='success' fullWidth>Login</Button>
                     </Grid>
                 </Grid>
             

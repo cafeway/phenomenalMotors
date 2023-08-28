@@ -6,29 +6,32 @@ import Dashboard from './dashboard';
 import Login from './components/login';
 import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
+import App_Bar from './components/appbar';
+import { FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, Stack, Typography } from '@mui/material';
+import { useState } from 'react';
 
 function App() {
+  const [filter, setFilter] = useState('');
+
+  const handleChange = (event) => {
+    setFilter(event.target.value);
+  };
   return (
     <Box
       component="form"
-      sx={{ bgcolor: '#eff0f5',height:'100%',flexGrow:1}}
+      sx={{ bgcolor: 'white',height:'100vh',flexGrow:1}}
       noValidate
       autoComplete="off"
       color='#eff0f5'
     >
+    
+      {/* <App_Bar/> */}
       <Router>
-        {/* <ul>
-          <li style={{color:'black'}}>
-            <Link  to='/login'>Login </Link>
-          </li>
-
-        </ul> */}
         <Routes>
           <Route exact path='/login' element={<Login/>} ></Route>
           <Route exact path='/signUp' element={<Form/>}></Route>
         </Routes>
       </Router>
-      <Dashboard/>
     </Box>
   );
 }
