@@ -38,7 +38,7 @@ export default function FormPropsTextFields() {
             }
             subheader={
                 <Stack direction='row' justifyContent='center'>
-                    <Tabs value={mode}>
+                    <Tabs value={mode} onChange={handleModeToggle}>
                         <Tab value='vendor' label="Vendor"/>
                         <Tab value='customer' label="Customer"/>
                     </Tabs>
