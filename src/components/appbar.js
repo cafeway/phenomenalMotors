@@ -1,8 +1,9 @@
-import { AppBar, Avatar, Badge, Icon, IconButton,Button,InputAdornment, TextField, Toolbar, Typography } from '@mui/material';
+import { AppBar, Avatar, Badge, Icon, IconButton,Button,InputAdornment, TextField, Toolbar, Typography,Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import * as React from 'react';
-import { CircleNotifications, DarkMode, Filter1Outlined, KeyboardArrowDown, LocalGasStation, LocalGasStationOutlined, Mail, MailOutlineOutlined, Menu, NotificationAdd, NotificationAddOutlined, Notifications, NotificationsOutlined, Plagiarism, Search, Settings, Sort, TravelExplore, VerifiedUser } from '@mui/icons-material';
+import { CircleNotifications, DarkMode, Dashboard, Filter1Outlined, GridView, KeyboardArrowDown, LocalGasStation, LocalGasStationOutlined, Mail, MailOutlineOutlined, Menu, NotificationAdd, NotificationAddOutlined, Notifications, NotificationsOutlined, Plagiarism, Search, Settings, Sort, TravelExplore, VerifiedUser } from '@mui/icons-material';
 import MenuItem from '@mui/material/MenuItem';
+import ListItemAvatar from '@mui/material/ListItemAvatar';
 
 const navigationItems = ['Dashboard','Sales','Inventory','Finance','Shift Admin'];
 const DrawerWidth = 240;
@@ -11,17 +12,11 @@ const DrawerWidth = 240;
 export default function App_Bar() {
     const handleOver = (event) => alert("yes");
     
-    const [anchorEl, setAnchorEl] = React.useState(null);
+    const [open, setOpen] = React.useState(false);
 
-    const menu_open = Boolean(anchorEl);
-
-    const handleClick = (event) =>  {
-        setAnchorEl(event.currentTarget);
-    }
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    }
+    const toggleDrawer = () => {
+      setOpen(!open);
+    };
     return (
         <>
         <AppBar
@@ -34,11 +29,12 @@ export default function App_Bar() {
                    color='primary'
                    axia-lable="menu"
                     sx={{mr:2}}
+                    onClick={toggleDrawer}
                 >
                     <Menu></Menu>
                 </IconButton>
                 
-                <TextField size='small' onClick={handleOver} variant='outlined'  placeholder='Search Crato' color='primary'
+                <TextField size='small' onClick={handleOver} variant='outlined' fullWidth='true'  placeholder='Search Crato' color='primary'
                  autoCorrect='true'
                  InputProps={{
                     endAdornment: <InputAdornment position="start">
@@ -49,7 +45,7 @@ export default function App_Bar() {
                        <TravelExplore color='primary' size='medium'></TravelExplore>
                     </InputAdornment>
                   }}
-                  sx={{marginLeft:'auto',marginRight:'auto',width:"500px"}}
+                  sx={{marginLeft:'auto',marginRight:'auto'}}
                 ></TextField>
                 <IconButton
                     
@@ -69,26 +65,44 @@ export default function App_Bar() {
                 >
                 <Notifications fontSize='medium'/>
                 </IconButton>
+                
                 <Avatar src='images/avator.jpg' sx={{marginLeft:'10px',marginRight:'10px'}}></Avatar>
-                <Button onClick={handleClick} startIcon={<KeyboardArrowDown/>} variant="outlined">Brian Kibui</Button>
+                <KeyboardArrowDown color='primary'></KeyboardArrowDown>
 
            
                 {/* <Typography variant='h6' sx={{flexGrow:1,color:'green',fontSize:'30px'}} fontWeight={6}>Crato Kenya</Typography> */}
             </Toolbar>
            
         </AppBar>
-         <Menu
-         anchorEl={anchorEl}
-         open={menu_open}
-         onClose={handleClose}
-         MenuListProps={{
-             'aria-labelledby': 'basic-button',
-           }}
-     >
-         <MenuItem onClick={handleClose}>Profile</MenuItem>
-         <MenuItem onClick={handleClose}>My account</MenuItem>
-         <MenuItem onClick={handleClose}>Logout</MenuItem>
-     </Menu>
-     </>
+        <Drawer anchor="left" open={open} onClose={toggleDrawer}
+         PaperProps={{
+          style: {
+            width: DrawerWidth,
+          },}}>
+        <div
+          role="presentation"
+          onClick={toggleDrawer}
+          onKeyDown={toggleDrawer}
+        >
+          <List>
+            <ListItem divider='true'>
+              <ListItemIcon>
+                <GridView/>
+              </ListItemIcon>
+              <ListItemText primary="Dashboard" />
+              
+            </ListItem>
+            <ListItem button>
+              {/* <ListItemIcon>
+                <ExploreIcon />
+              </ListItemIcon> */}
+              <ListItemText primary="Explore" />
+            </ListItem>
+            {/* Add more menu items as needed */}
+          </List>
+        </div>
+      </Drawer>
+        </>
+        
     );
 }
