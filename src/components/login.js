@@ -18,20 +18,18 @@ export default function FormPropsTextFields() {
     }
   return (
 
-        <form style={{marginTop:'0px'}}>
+        <form style={{marginTop:'auto',marginBottom:'auto',paddingTop:'20px',backgroundColor:'#F7F7F7'}}>
            
         
-        <Card style={{maxWidth:450,padding:"20px 5px",marginLeft:'auto',marginRight:'auto',marginTop:'30px',marginBottom:'auto'}}>
+        <Card style={{maxWidth:450,padding:"20px 5px",marginLeft:'auto',marginRight:'auto',marginTop:'10px',marginBottom:'auto',backgroundColor:'#F7F7F7'}} elevation={5}>
            <CardHeader
             title={
                 <>
                     <Stack direction='row' justifyContent='center'>
                        
-                        <LocalGasStation  sx={{width:'70px',height:'70px'}} color='primary'></LocalGasStation>
+                       <img src='images/logo.jpeg' style={{width:'150px',height:'150px'}}/>
                     </Stack>
-                    <Stack direction='row' justifyContent='center'>
-                        <Typography variant='body3' fontSize={20}>WELCOME</Typography>
-                    </Stack>
+                  
                 
                 </>
                 

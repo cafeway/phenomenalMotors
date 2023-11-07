@@ -1,7 +1,7 @@
-import { AppBar, Avatar, Badge, Icon, IconButton,Button,InputAdornment, TextField, Toolbar, Typography,Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { AppBar, Avatar,Stack, Badge, Icon, IconButton,Button,InputAdornment, TextField, Toolbar, Typography,Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import * as React from 'react';
-import { CircleNotifications, DarkMode, Dashboard, Filter1Outlined, GridView, KeyboardArrowDown, LocalGasStation, LocalGasStationOutlined, Mail, MailOutlineOutlined, Menu, NotificationAdd, NotificationAddOutlined, Notifications, NotificationsOutlined, Plagiarism, Search, Settings, Sort, TravelExplore, VerifiedUser } from '@mui/icons-material';
+import { AdminPanelSettings, CircleNotifications, DarkMode, Dashboard, Filter1Outlined, GridView, Inventory, KeyboardArrowDown, LocalGasStation, LocalGasStationOutlined, Logout, Loyalty, Mail, MailOutlineOutlined, Menu, NotificationAdd, NotificationAddOutlined, Notifications, NotificationsOutlined, Plagiarism, Search, Settings, Sort, Summarize, TravelExplore, VerifiedUser } from '@mui/icons-material';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 
@@ -20,7 +20,7 @@ export default function App_Bar() {
     return (
         <>
         <AppBar
-            position='static'
+            position='sticky'
             color = 'inherit'
         >
             <Toolbar>
@@ -78,28 +78,62 @@ export default function App_Bar() {
          PaperProps={{
           style: {
             width: DrawerWidth,
+            backgroundColor:'#F7F7F7'
           },}}>
         <div
           role="presentation"
           onClick={toggleDrawer}
           onKeyDown={toggleDrawer}
         >
+            <Stack direction='row' justifyContent='center' sx={{marginBottom:'30px'}}>
+            <img src='images/logo.jpeg' style={{width:'150px',height:'150px'}}/>
+            </Stack>
+           
+        
           <List>
             <ListItem divider='true'>
               <ListItemIcon>
-                <GridView/>
+                <GridView sx={{color:'#1976D2'}}></GridView>
               </ListItemIcon>
-              <ListItemText primary="Dashboard" />
+              <ListItemText sx={{color:'#1976D2'}} primary="Dashboard" />
               
             </ListItem>
-            <ListItem button>
-              {/* <ListItemIcon>
-                <ExploreIcon />
-              </ListItemIcon> */}
-              <ListItemText primary="Explore" />
+            <ListItem divider='true'>
+              <ListItemIcon>
+                <Loyalty sx={{color:'#1976D2'}}></Loyalty>
+              </ListItemIcon>
+              <ListItemText sx={{color:'#1976D2'}} primary="Sales" />
+              
             </ListItem>
+            <ListItem divider='true'>
+              <ListItemIcon>
+                <Inventory sx={{color:'#1976D2'}}></Inventory>
+              </ListItemIcon>
+              <ListItemText sx={{color:'#1976D2'}} primary="Inventory" />
+              
+            </ListItem>
+            <ListItem divider='true'>
+              <ListItemIcon>
+                <AdminPanelSettings sx={{color:'#1976D2'}}></AdminPanelSettings>
+              </ListItemIcon>
+              <ListItemText sx={{color:'#1976D2'}} primary="Shift Admin" />
+              
+            </ListItem>
+            <ListItem divider='true'>
+              <ListItemIcon>
+                <Summarize sx={{color:'#1976D2'}}></Summarize>
+              </ListItemIcon>
+              <ListItemText sx={{color:'#1976D2'}} primary="Summary" />
+              
+            </ListItem>
+            
+           
             {/* Add more menu items as needed */}
           </List>
+          <Stack direction='row' justifyContent='center' sx={{marginTop:'auto'}} >
+          <Button endIcon={<Logout/>} variant='outlined' sx={{width:'200px'}}>Logout</Button>
+          </Stack>
+         
         </div>
       </Drawer>
         </>
