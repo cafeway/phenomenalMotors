@@ -30,7 +30,7 @@ const VehicleFinance = () => {
     };
 
     return (
-        <Grid container alignItems="center" justifyContent="center" marginTop={3} spacing={2} marginBottom={5}>
+        <Grid container alignItems="center" justifyContent="center" marginTop={3} spacing={2} marginBottom={10}>
             <Grid item md={4}>
                 <Card elevation={5}>
                     <CardHeader
