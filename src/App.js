@@ -17,25 +17,20 @@ function App() {
     setFilter(event.target.value);
   };
   return (
-    <AboutUs/>
-    // <Box
-    //   component="form"
-    //   sx={{ bgcolor: '#F7F7F7',height:'100%',width:'100%',flexGrow:1}}
-    //   noValidate
-    //   autoComplete="off"
-    //   color='#eff0f5'
-    // >
+    
+   
  
      
       
-    //   <Router>
-    //     <Routes>
-    //       <Route exact path='/login' element={<Login/>} ></Route>
-    //       <Route exact path='/register' element={<Register/>}></Route>
-    //       <Route exact path='/dashboard' element={<Dash/>}></Route>
-    //     </Routes>
-    //   </Router>
-    // </Box>
+      <Router>
+        <Routes>
+          <Route exact path='/login' element={<Login/>} ></Route>
+          <Route exact path='/register' element={<Register/>}></Route>
+          <Route exact path='/' element={<Dash/>}></Route>
+          <Route exact path='/about' element={<AboutUs/>}></Route>
+        </Routes>
+      </Router>
+   
   );
 }
 

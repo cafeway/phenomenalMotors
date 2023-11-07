@@ -15,6 +15,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import { Link} from '@mui/material';
 import Footer from './footer'
 import { Call, Home, QuestionMark } from '@mui/icons-material';
 
@@ -180,21 +181,28 @@ export default function PrimarySearchAppBar() {
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
+              component={Link}
+              to='/about'
             >
              
-                <QuestionMark /><Typography>About us</Typography>
+                <QuestionMark /><Link to="/about" style={{ textDecoration: 'none' }}>
+            <Typography  sx={{color:'white'}}>About us</Typography>
+          </Link>
               
             </IconButton>
             <IconButton
-              size="large"
+              size="small"
               edge="start"
               aria-label="account of current user"
               aria-controls={menuId}
               aria-haspopup="true"
               onClick={handleProfileMenuOpen}
               color="inherit"
+              
             >
-              <Call /><Typography>Contact us</Typography>
+              <Call />
+            <Typography  sx={{color:'white'}}>Contact us</Typography>
+         
             </IconButton>
             
             </Box>
