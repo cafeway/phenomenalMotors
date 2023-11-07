@@ -1,0 +1,42 @@
+[
+    {
+        "name": "convertible",
+        "image": "images/esquire-2018.jpeg"
+    },
+    {
+        "name": "coupe",
+        "image": "images/carbody/coupe.png"
+    },
+    {
+        "name": "hatchback",
+        "image": "images/carbody/hatchback.png"
+    },
+    {
+        "name": "motorbike",
+        "image": "images/carbody/motorbike.png"
+    },
+    {
+        "name": "pickup",
+        "image": "images/carbody/pickup.png"
+    },
+    {
+        "name": "saloon",
+        "image": "images/carbody/saloon.png"
+    },
+    {
+        "name": "station-wagon",
+        "image": "images/carbody/station-wagon.png"
+    },
+    {
+        "name": "suv",
+        "image": "images/carbody/suv.png"
+    },
+    {
+        "name": "van",
+        "image": "images/carbody/van.png"
+    },
+    {
+        "name": "wagon",
+        "image": "images/carbody/wagon.png"
+    }
+]

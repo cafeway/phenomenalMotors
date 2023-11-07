@@ -1,0 +1,30 @@
+[
+    {
+      "name": "Sedan",
+      "description": "A sedan is a car with a three-box body style, meaning it has a separate trunk compartment. Sedans are typically four-door cars, but there are also some two-door sedans available."
+    },
+    {
+      "name": "Coupe",
+      "description": "A coupe is a two-door car with a sloping roofline. Coupes are typically sportier than sedans and often have less seating capacity."
+    },
+    {
+      "name": "SUV",
+      "description": "An SUV, or sport utility vehicle, is a vehicle that combines the features of a passenger car and a light truck. SUVs are typically taller and have more ground clearance than cars, making them more capable of off-road driving."
+    },
+    {
+      "name": "MPV",
+      "description": "An MPV, or multi-purpose vehicle, is a type of vehicle that is designed to be both versatile and functional. MPVs typically have seating for seven or more passengers and offer a lot of cargo space."
+    },
+    {
+      "name": "Hatchback",
+      "description": "A hatchback is a car with a two-box body style, meaning it has a combined passenger and cargo compartment. Hatchbacks are typically smaller and more fuel-efficient than sedans or SUVs."
+    },
+    {
+      "name": "Wagon",
+      "description": "A wagon is a car with a three-box body style, but with a larger cargo compartment than a sedan. Wagons are typically more practical than sedans and offer more cargo space."
+    },
+    {
+      "name": "Convertible",
+      "description": "A convertible is a car with a retractable roof. Convertibles are typically driven in sunny weather and offer the driver and passengers the ability to enjoy the open air."
+    }
+  ]

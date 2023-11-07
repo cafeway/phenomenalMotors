@@ -1,0 +1,13 @@
+import { Grid, Paper, Typography } from "@mui/material"
+
+
+const BodySizeSearch = () => {
+    <Paper>
+        
+        <Grid>
+            <Typography sx={{color:'black'}}>sdsdsd</Typography>
+        </Grid>
+    </Paper>
+}
+
+export default BodySizeSearch

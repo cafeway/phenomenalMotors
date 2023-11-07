@@ -9,7 +9,7 @@ import Breadcrumbs from '@mui/material/Breadcrumbs';
 import App_Bar from './components/appbar';
 import { FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, Stack, Typography } from '@mui/material';
 import { useState } from 'react';
-
+import AboutUs from './components/aboutUs';
 function App() {
   const [filter, setFilter] = useState('');
 
@@ -17,24 +17,25 @@ function App() {
     setFilter(event.target.value);
   };
   return (
-    <Box
-      component="form"
-      sx={{ bgcolor: '#F7F7F7',height:'100%',flexGrow:1}}
-      noValidate
-      autoComplete="off"
-      color='#eff0f5'
-    >
+    <AboutUs/>
+    // <Box
+    //   component="form"
+    //   sx={{ bgcolor: '#F7F7F7',height:'100%',width:'100%',flexGrow:1}}
+    //   noValidate
+    //   autoComplete="off"
+    //   color='#eff0f5'
+    // >
  
      
       
-      <Router>
-        <Routes>
-          <Route exact path='/login' element={<Login/>} ></Route>
-          <Route exact path='/register' element={<Register/>}></Route>
-          <Route exact path='/dashboard' element={<Dash/>}></Route>
-        </Routes>
-      </Router>
-    </Box>
+    //   <Router>
+    //     <Routes>
+    //       <Route exact path='/login' element={<Login/>} ></Route>
+    //       <Route exact path='/register' element={<Register/>}></Route>
+    //       <Route exact path='/dashboard' element={<Dash/>}></Route>
+    //     </Routes>
+    //   </Router>
+    // </Box>
   );
 }
 

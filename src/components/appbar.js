@@ -1,142 +1,233 @@
-import { AppBar, Avatar,Stack, Badge, Icon, IconButton,Button,InputAdornment, TextField, Toolbar, Typography,Drawer, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
 import * as React from 'react';
-import { AdminPanelSettings, CircleNotifications, DarkMode, Dashboard, Filter1Outlined, GridView, Inventory, KeyboardArrowDown, LocalGasStation, LocalGasStationOutlined, Logout, Loyalty, Mail, MailOutlineOutlined, Menu, NotificationAdd, NotificationAddOutlined, Notifications, NotificationsOutlined, Plagiarism, Search, Settings, Sort, Summarize, TravelExplore, VerifiedUser } from '@mui/icons-material';
+import { styled, alpha } from '@mui/material/styles';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import InputBase from '@mui/material/InputBase';
+import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import SearchIcon from '@mui/icons-material/Search';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import MailIcon from '@mui/icons-material/Mail';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import MoreIcon from '@mui/icons-material/MoreVert';
+import Footer from './footer'
+import { Call, Home, QuestionMark } from '@mui/icons-material';
 
-const navigationItems = ['Dashboard','Sales','Inventory','Finance','Shift Admin'];
-const DrawerWidth = 240;
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginRight: theme.spacing(2),
+  marginLeft: 0,
+  width: '100%',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(3),
+    width: 'auto',
+  },
+}));
 
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: '100%',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
 
-export default function App_Bar() {
-    const handleOver = (event) => alert("yes");
-    
-    const [open, setOpen] = React.useState(false);
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'inherit',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('md')]: {
+      width: '20ch',
+    },
+  },
+}));
 
-    const toggleDrawer = () => {
-      setOpen(!open);
-    };
-    return (
-        <>
-        <AppBar
-            position='sticky'
-            color = 'inherit'
+export default function PrimarySearchAppBar() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+
+  const isMenuOpen = Boolean(anchorEl);
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+  const handleProfileMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMobileMenuClose = () => {
+    setMobileMoreAnchorEl(null);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+    handleMobileMenuClose();
+  };
+
+  const handleMobileMenuOpen = (event) => {
+    setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+  const menuId = 'primary-search-account-menu';
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+    </Menu>
+  );
+
+  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const renderMobileMenu = (
+    <Menu
+      anchorEl={mobileMoreAnchorEl}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      id={mobileMenuId}
+      keepMounted
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      open={isMobileMenuOpen}
+      onClose={handleMobileMenuClose}
+    >
+      <MenuItem>
+        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+          <Badge badgeContent={4} color="error">
+            <MailIcon />
+          </Badge>
+        </IconButton>
+        <p>Messages</p>
+      </MenuItem>
+      <MenuItem>
+        <IconButton
+          size="large"
+          aria-label="show 17 new notifications"
+          color="inherit"
         >
-            <Toolbar>
-                <IconButton
-                   edge="start"
-                   color='primary'
-                   axia-lable="menu"
-                    sx={{mr:2}}
-                    onClick={toggleDrawer}
-                >
-                    <Menu></Menu>
-                </IconButton>
-                
-                <TextField size='small' onClick={handleOver} variant='outlined' fullWidth='true'  placeholder='Search Crato' color='primary'
-                 autoCorrect='true'
-                 InputProps={{
-                    endAdornment: <InputAdornment position="start">
-                      <LocalGasStationOutlined color='primary' ></LocalGasStationOutlined>
-                    </InputAdornment>,
-                    startAdornment: <InputAdornment color='successs'>
-                        {/* <Sort color='success' fontSize='small'></Sort> */}
-                       <TravelExplore color='primary' size='medium'></TravelExplore>
-                    </InputAdornment>
-                  }}
-                  sx={{marginLeft:'auto',marginRight:'auto'}}
-                ></TextField>
-                <IconButton
-                    
-                    sx={{marginLeft:'auto',color:'#FFEA00'}}
-                >
-                     
-                      
-                        <DarkMode  fontSize='medium'></DarkMode>
-                  
-                 
-                </IconButton>
-                <IconButton
-                      edge="end"
-                
-                      color='primary'
-                      axia-lable="menu"
-                >
-                <Notifications fontSize='medium'/>
-                </IconButton>
-                
-                <Avatar src='images/avator.jpg' sx={{marginLeft:'10px',marginRight:'10px'}}></Avatar>
-                <KeyboardArrowDown color='primary'></KeyboardArrowDown>
-
-           
-                {/* <Typography variant='h6' sx={{flexGrow:1,color:'green',fontSize:'30px'}} fontWeight={6}>Crato Kenya</Typography> */}
-            </Toolbar>
-           
-        </AppBar>
-        <Drawer anchor="left" open={open} onClose={toggleDrawer}
-         PaperProps={{
-          style: {
-            width: DrawerWidth,
-            backgroundColor:'#F7F7F7'
-          },}}>
-        <div
-          role="presentation"
-          onClick={toggleDrawer}
-          onKeyDown={toggleDrawer}
+          <Badge badgeContent={17} color="error">
+            <NotificationsIcon />
+          </Badge>
+        </IconButton>
+        <p>Notifications</p>
+      </MenuItem>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
         >
-            <Stack direction='row' justifyContent='center' sx={{marginBottom:'30px'}}>
-            <img src='images/logo.jpeg' style={{width:'150px',height:'150px'}}/>
-            </Stack>
-           
-        
-          <List>
-            <ListItem divider='true'>
-              <ListItemIcon>
-                <GridView sx={{color:'#1976D2'}}></GridView>
-              </ListItemIcon>
-              <ListItemText sx={{color:'#1976D2'}} primary="Dashboard" />
+          <AccountCircle />
+        </IconButton>
+        <p>Profile</p>
+      </MenuItem>
+    </Menu>
+  );
+
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="fixed">
+        <Toolbar>
+          {/* <IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="open drawer"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon />
+          </IconButton> */}
+          <img src='images/phm-logo.png' style={{width:'200px'}}/>
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <IconButton edge="start"size="large" aria-label="show 4 new mails" color="inherit">
               
-            </ListItem>
-            <ListItem divider='true'>
-              <ListItemIcon>
-                <Loyalty sx={{color:'#1976D2'}}></Loyalty>
-              </ListItemIcon>
-              <ListItemText sx={{color:'#1976D2'}} primary="Sales" />
-              
-            </ListItem>
-            <ListItem divider='true'>
-              <ListItemIcon>
-                <Inventory sx={{color:'#1976D2'}}></Inventory>
-              </ListItemIcon>
-              <ListItemText sx={{color:'#1976D2'}} primary="Inventory" />
-              
-            </ListItem>
-            <ListItem divider='true'>
-              <ListItemIcon>
-                <AdminPanelSettings sx={{color:'#1976D2'}}></AdminPanelSettings>
-              </ListItemIcon>
-              <ListItemText sx={{color:'#1976D2'}} primary="Shift Admin" />
-              
-            </ListItem>
-            <ListItem divider='true'>
-              <ListItemIcon>
-                <Summarize sx={{color:'#1976D2'}}></Summarize>
-              </ListItemIcon>
-              <ListItemText sx={{color:'#1976D2'}} primary="Summary" />
-              
-            </ListItem>
+              <Home /><Typography>Home</Typography>
             
-           
-            {/* Add more menu items as needed */}
-          </List>
-          <Stack direction='row' justifyContent='center' sx={{marginTop:'auto'}} >
-          <Button endIcon={<Logout/>} variant='outlined' sx={{width:'200px'}}>Logout</Button>
-          </Stack>
-         
-        </div>
-      </Drawer>
-        </>
+          </IconButton>
+          <IconButton
+              size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
+             
+                <QuestionMark /><Typography>About us</Typography>
+              
+            </IconButton>
+            <IconButton
+              size="large"
+              edge="start"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+              color="inherit"
+            >
+              <Call /><Typography>Contact us</Typography>
+            </IconButton>
+            
+            </Box>
+          
+          {/* <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search> */}
         
-    );
+          
+          <Box sx={{ flexGrow: 1 }} />
+         
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="show more"
+              aria-controls={mobileMenuId}
+              aria-haspopup="true"
+              onClick={handleMobileMenuOpen}
+              color="inherit"
+            >
+              <MenuIcon/>
+            </IconButton>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      {renderMobileMenu}
+      {renderMenu}
+    </Box>
+  );
 }

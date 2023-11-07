@@ -3,518 +3,433 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import { CardHeader, Tab ,Typography,Stack, CardActions,Avatar, IconButton, Rating, Button, FormControl, Select, MenuItem, CardContent, MobileStepper, Divider, FormHelperText, Tabs } from '@mui/material';
-import { Assessment, AssignmentInd, Calculate, CalendarMonth, CheckCircle, GridView, Insights, KeyboardArrowLeft, KeyboardArrowRight, LocalGasStation, LocalGroceryStoreOutlined, LockClock, MoreVert, Place, PointOfSale, Receipt, RemoveRedEye, Toll, WorkspacePremium } from '@mui/icons-material';
-import InputLabel from '@mui/material/InputLabel';
-import { PieChart } from '@mui/x-charts/PieChart';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
-import Chip from '@mui/material/Chip';
-import Link from '@mui/material/Link';
-import HomeIcon from '@mui/icons-material/Home';
-import WhatshotIcon from '@mui/icons-material/Whatshot';
-import GrainIcon from '@mui/icons-material/Grain';
-import FastfoodIcon from '@mui/icons-material/Fastfood';
-import LaptopMacIcon from '@mui/icons-material/LaptopMac';
-import HotelIcon from '@mui/icons-material/Hotel';
-import Timeline from '@mui/lab/Timeline';
-import TimelineItem from '@mui/lab/TimelineItem';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineOppositeContent from '@mui/lab/TimelineOppositeContent';
-import TimelineDot from '@mui/lab/TimelineDot';
-import RepeatIcon from '@mui/icons-material/Repeat';
+import Carousel from 'react-material-ui-carousel'
+import data from '../data/cars.json';
+import bodyTypes from '../data/bodytypes.json'
+import { CardHeader, Tab ,Typography,Stack, CardActions,Avatar, IconButton, Rating, Button, FormControl, Select, MenuItem, CardContent, MobileStepper, Divider, FormHelperText, Tabs, Card, Icon, Fab, CardMedia, Chip, useMediaQuery, TextField, InputAdornment, createTheme, SpeedDial, SpeedDialAction } from '@mui/material';
+import Banner from './banner'
+import FormComponent from './formComponent';
+import SelectComponent from './selectComponent'
 import App_Bar from './appbar';
-
-const StyledGrid = styled(Grid)(({ theme }) => ({
-  // Default marginTop for all screen sizes
-
-  [theme.breakpoints.up('sm')]: {
-    marginTop: '-60px', // Adjusted marginTop for screens with width >= 600px (sm breakpoint
-  },
-
-//   [theme.breakpoints.up('md')]: {
-//     marginTop: '60px', // Adjusted marginTop for screens with width >= 960px (md breakpoint)
-//   },
-}));
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
-
+import { AccountCircle, BrushOutlined, Build, CalendarMonth, CalendarMonthOutlined, Call, Camera, CameraAlt, CarCrashOutlined, CardTravel, Check, CurrencyExchange, Directions, DirectionsCar, Email, Facebook, LocalGasStation, LocalGroceryStore, MoreVert, Paid, PaidOutlined, Search, SearchOff, Sell, Twitter, Visibility, WhatsApp, YouTube } from '@mui/icons-material';
+import App from '../App';
+import { TabContext, TabList, TabPanel } from '@mui/lab';
+import Footer from './footer'
+import { ThemeProvider } from '@emotion/react';
+import theme from './theme'
+import BrandBanner from './brandBanner'
+import BottomNavigation from './BottomNavigation'
+import VehicleFinance from './vehicleFinance'
+import BodySize from './bodySize'
+import body from '../data/bodies.json'
+import CarGrid  from './carsGrid';
+import Checkbox from '@mui/material/Checkbox';
+import Dashs from './dashboard';
+import Dash from './dashboard';
 export default function BasicGrid() {
-  const [rating,setRating] = React.useState(4);
+ 
+  
+  
 
-  const [station, setStation] = React.useState('Esque Station');
-  const images = [
-    {
-        src: 'images/tlube.jpg',
-        price: '1500ksh',
-        sales: '100pcs',
-        tag: 'Total Lube'
-    },
-    {
-        src: 'images/kgas.jpg',
-        price: '2500ksh',
-        sales: '1000pcs',
-        tag: 'K-Gas'
-    },
-    {
-        src: 'images/airFilter.jpg',
-        price: '2900ksh',
-        sales: '140pcs',
-        tag: 'Air Filters'
-    },
-    {
-        src: 'images/bulb.jpg',
-        price: '290ksh',
-        sales: '1400pcs',
-        tag: 'Bulb'
-    },
-    
-    
     // Add more image URLs as needed
-  ];
-  const [selectedTab, setSelectedTab] = React.useState(0);
+  const [selectedTab, setSelectedTab] = React.useState('1');
 
   const handleTabChange = (event, newValue) => {
     setSelectedTab(newValue);
   };
 
-  const timelineData = [
-    {
-      title: 'Today',
-      content: 'Content for Event 1...',
-    },
-    {
-      title: 'Weekly',
-      content: 'Content for Event 2...',
-    },
-    {
-      title: 'Monthly',
-      content: 'Content for Event 3...',
-    },
-    // Add more timeline events as needed
-  ];
-  const stations = [
-    "Esque Station",
-    "Chuka Station",
-    "Daisy Station",
-    "Brian Station",
-    "James Station",
-  ];
-  const data = [
-    { label: 'Group A', value: 400 },
-    { label: 'Group B', value: 300 },
-    { label: 'Group C', value: 300 },
-    { label: 'Group D', value: 200 },
-  ];
+  const [modalOpen, setModalOpen] = React.useState(false);
 
- 
-  const handleStationChange = (event) => {
-    setStation(event.target.value);
+
+  const handleModalOpen = () => {
+    setModalOpen(true);
   }
-  const [activeStep, setActiveStep] = React.useState(0);
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
+  const handleModalClose = () => {
+    setModalOpen(false);
+  }
 
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+  const [carData,setCarData] = React.useState([]);
 
-  React.useEffect(() => {
-    const autoScroll = setInterval(() => {
-      setActiveStep((prevActiveStep) => (prevActiveStep + 1) % images.length);
-    }, 10000); // Auto-scroll every 3 seconds
+  const [cardsPerSlide, setCardsPerSlide] =  React.useState(1);
+  React.useEffect(()=>{
+    setCarData(data)
+  },[])
 
-    return () => {
-      clearInterval(autoScroll);
-    };
-  }, []);
+
+
+  const makes = [
+    {
+      name: 'pradotx'
+    }, 
+    {
+      name: 'pradoV8'
+    },
+    {
+      name: 'urban cruiser'
+    },
+  ]
+
+  const models = 
+  [
+    {name:"Toyota"},
+    {name: "Mercedes"},
+    {name: "BMW"},
+  ]
+
+  const fuelTypes = 
+  [
+    {
+      name: "Gasoline"
+    },
+    {
+      name: "Petrol"
+    },
+    {
+      name: "Diesel"
+    },
+    {
+      name: "Electricity"
+    },
+    {
+      name: "Ethanol"
+    },
+  ]
+
+  const brands = [
+    "images/brands/audi-Audi.jpg",
+    "images/brands/benx.jpg",
+    "images/brands/bmw.jpg",
+    "images/brands/ford.jpg",
+    "images/brands/foton.jpg",
+    "images/brands/honda.jpg",
+    "images/brands/porche.jpg",
+    "images/brands/infinite.jpg",
+    "images/brands/jeep.jpg",
+    "images/brands/kia.jpg",
+    "images/brands/landrover.jpg",
+    "images/brands/lexus.jpg",
+    "images/brands/nisaan-Nisaan.jpg",
+    "images/brands/mazda-Mazda.jpg",
+    "images/brands/mini-Mini.jpg",
+    "images/brands/subaru.jpg",
+    "images/brands/volkswagen.jpg",
+    "images/brands/volvo-Volvo.jpg",
+    
+    
+  ]
+  const bodies = [
+      {
+          "name": "convertible",
+          "image": "carbody/convertible.png"
+      },
+      {
+          "name": "coupe",
+          "image": "carbody/coupe.png"
+      },
+      {
+          "name": "hatchback",
+          "image": "carbody/hatchback.png"
+      },
+      {
+          "name": "motorbike",
+          "image": "carbody/motorbike.png"
+      },
+      {
+          "name": "pickup",
+          "image": "carbody/pickup.png"
+      },
+      {
+          "name": "saloon",
+          "image": "carbody/saloon.png"
+      },
+      {
+          "name": "station-wagon",
+          "image": "carbody/station-wagon.png"
+      },
+      {
+          "name": "suv",
+          "image": "carbody/suv.png"
+      },
+      {
+          "name": "van",
+          "image": "carbody/van.png"
+      },
+      {
+          "name": "wagon",
+          "image": "carbody/wagon.png"
+      }
+  ]
+
+  const socialICons = [
+    {icon: <WhatsApp sx={{color:'lightgreen'}}/>, name: 'whatsapp'},
+    {icon: <Facebook sx={{color:'blue'}}/>, name: 'facebook'},
+    {icon: <YouTube sx={{color:'red'}} />, name: 'youtube' },
+    {icon: <Twitter sx={{color:'blue'}}/>, name: 'twitter'},
+  ];
+  // icons
+  const customIcon = <PaidOutlined color="primary" />;
+  
+
+  // //screen sizes
+  // const ExtraLargeScreen = useMediaQuery('(min-width: 1920)')
+  // const LargeScreen = useMediaQuery('(min-width: 1280px)')
+  // const MediumScreen = useMediaQuery('(min-width): 960')
+  // const SmallScreen = useMediaQuery('(min-width: 600)')
+  // const ExtraSmallScreen = useMediaQuery('(max-width: 600)')
+
+  const [isLaptopScreen, setIsLaptopScreen] = React.useState(useMediaQuery('(min-width: 1024px)'));
+  // getting and rendering cards per slide on the carousel
+  
+
   return (
-    <>
-    <App_Bar/> 
-    <Box sx={{ flexGrow: 1 }} marginTop={1}>
-         <Grid container spacing={2} justifyContent='left' marginLeft={5} marginBottom={2}>
-            <Grid item>
-            <Breadcrumbs aria-label="breadcrumb">
-                <Link
-                underline="hover"
-                sx={{ display: 'flex', alignItems: 'center' }}
-                color="primary"
-                href="/"
-                >
-                <GridView color='primary' sx={{ mr: 0.5 }} fontSize="inherit" />
-                Crato
-                </Link>
-                <Link
-                underline="hover"
-                sx={{ display: 'flex', alignItems: 'center' }}
-                color="primary"
-                href="/material-ui/getting-started/installation/"
-                >
-                <Assessment color='primary' sx={{ mr: 0.5 }} fontSize="inherit" />
-                Dashboard
-                </Link>
-              
-            </Breadcrumbs>
+    <ThemeProvider theme={theme}>
+      <Box>
+       <App_Bar/>
+       <Banner/>
+     
+      <Grid container>
+        <Grid item md={12} sm={6}>
+             <TabContext value={selectedTab}>
+    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <TabList onChange={handleTabChange} aria-label="lab API tabs example">
+          <Tab icon={<Search fontSize='small'/>} iconPosition='start' label={<Typography sx={{fontSize:'11px',fontWeight:'bold'}}>Search a car</Typography>} value="1"/>
+            <Tab icon={<CurrencyExchange fontSize='small' />} iconPosition='start' label={<Typography sx={{fontSize:'11px',fontWeight:'bold'}}>Trade in</Typography>} value="2"/>
+            <Tab icon={<Build fontSize='small'/>} iconPosition='start' label={<Typography sx={{fontSize:'11px',fontWeight:'bold'}}>Service Your car</Typography>}value="3"/>
+          </TabList>
+        </Box>
+        <TabPanel value="1">
+        `<Grid container spacing={2}>
+            
+        <Grid item md={3} sm={12}>
+               <SelectComponent select size='small' helperText="Select a make" label="make" fullWidth data={models} icon={<DirectionsCar/>}  ></SelectComponent>
+              </Grid>
+              <Grid item md={3} sm={12}>
+               <SelectComponent select size='small' helperText="Select a model" label="model" fullWidth data={makes} icon={<DirectionsCar/>}  ></SelectComponent>
+              </Grid>
+                <Grid item md={3} sm={12}>
+                  <FormComponent helperText="Minimum price" size="small" label="Min Price" fullWidth customIcon={customIcon}/>
+              </Grid>
+              <Grid item md={3} sm={12}>
+              <FormComponent helperText="Minimum price" size="small" label="Max Price" fullWidth customIcon={customIcon}/>
+              </Grid>
+              <Grid item md={3} sm={12}>
+              <SelectComponent select size='small' helperText="Type of Fuel" label="Fuel Type" fullWidth data={fuelTypes} icon={<LocalGasStation/>}></SelectComponent>
+              </Grid>
+              <Grid item md={3} sm={12}>
+               <SelectComponent select size='small' helperText="Choose a body type" label="bodyType" fullWidth data={bodyTypes} icon={<DirectionsCar/>}></SelectComponent>
+
+              </Grid>
+              <Grid item md={3} sm={12}>
+              <FormComponent helperText="Minimum year" size="small" label="Min Year" fullWidth customIcon={<CalendarMonth/>}/>
+              </Grid>
+              <Grid item md={3} sm={12}>
+              <FormComponent helperText="Maximum year" size="small" label="Max Year" fullWidth customIcon={<CalendarMonth/>}/>
+              </Grid>
+            </Grid>
+        </TabPanel>
+        <TabPanel value="2">
+         <Grid container spacing={2}>
+            <Grid item md={2} sm={6}>
+              <FormComponent helperText="Your preffered name" size="small" label="Name" fullWidth customIcon={<AccountCircle/>}/>
+            </Grid>
+            <Grid item md={2} sm={4}>
+            <FormComponent helperText="Your Contact" size="small" label="PhoneNumber" fullWidth customIcon={<Call/>}/>
+            </Grid>
+            <Grid item md={2} sm={4}>
+            <FormComponent helperText="Your Email Address" size="small" label="Email" fullWidth customIcon={<Email/>}/>
+            </Grid>
+            <Grid item md={2} sm={4}>
+            <FormComponent helperText="Your cars make or model" size="small" label="Make and Model" fullWidth customIcon={<DirectionsCar/>}/>
+            </Grid>
+            <Grid item md={2} sm={4}>
+            <FormComponent  helperText="Year of manufacturing" size="small" label="Year" fullWidth customIcon={<CalendarMonth/>}/>
+            </Grid>
+            <Grid item md={2} sm={4}>
+            <FormComponent helperText="Licence plate" size="small" label="License plate" fullWidth customIcon={<DirectionsCar/>}/>
             </Grid>
          </Grid>
-         
-      <Grid container spacing={2} justifyContent='center'>
-        
-        <Grid item xs={12} sm={5}>
-          
-            <Card elevation={0}>
-                <CardHeader
-                    avatar = {
-                        <Avatar src='images/avator.jpg'  sx={{ width: '100px', height: '100px' }}></Avatar>
-                    }
-                    title= {
-                        
-                        // <Stack direction='row' spacing={1}>
-                        <Typography variant='h6'>Congratulations <b>Brian!!</b> &#127942; </Typography>
-                        // <Typography sx={{fontSize:'30px'}}>&#10024;</Typography>
-                        /* </Stack> */
-                        
-                        
-                    }
-                    subheader ={
-                        <Typography sx={{fontSize:'13px'}}>Best seller of the week</Typography>
-                    }
-                    action= {
-                        <IconButton aria-label='settings'>
-                            <MoreVert/>
-                        </IconButton>
-                    }
-                />
-               
-                <CardActions>
-                    <Rating
-                        name="rating"
-                        value={rating}
-                        onChange={(event,newValue)=>{
-                            setRating(newValue);
-                        }}
-                    ></Rating>
-                    <Button sx={{marginLeft:'10px'}} variant='outlined' startIcon={<AssignmentInd/>}>Profile</Button>
-                </CardActions>
-            </Card>
-          
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <Card raised='true'>
-             
-             
-             <CardContent>
-                <Stack direction='row'spacing={2}justifyContent='center'>
-                    <Card elevation={1} sx={{width:'300px'}}>
-                        <CardHeader
-                            avatar={
-                                <LocalGroceryStoreOutlined fontSize='large' color='primary'></LocalGroceryStoreOutlined>
-                            }
-                            title={
-                                <Typography>Total Sales</Typography>
-                            }
-                            action={
-                                <MoreVert/>
-                            }
-                            subheader="10000/="
-                        />
-                        <CardActions>
-        
-                           
-                        </CardActions>
-                    </Card>
-                    <Card elevation={1} sx={{width:'300px'}}>
-                        <CardHeader
-                            avatar={
-                                
-                                <Receipt fontSize='large' color='error'></Receipt>
-                            }
-                            title={
-                                <Typography color='error'
-                                >Invoices</Typography>
-                            }
-                            action={
-                                <MoreVert/>
-                            }
-                            subheader={
-                                <Chip color='error' variant='outlined' label='100' icon={<Calculate/>}/>
-                                    
-                            }
-                        />
-                        <CardActions>
-        
-                           
-                        </CardActions>
-                    </Card>
-                </Stack>
-                <Stack direction='row'spacing={2}justifyContent='center' marginTop={1}>
-                    <Card elevation={1} sx={{width:'300px'}}>
-                        <CardHeader
-                            avatar={
-                                <Toll fontSize='large' color='warning'></Toll>
-                            }
-                            title={
-                                <Typography sx={{color:'#ED6C02'}}>Expenses</Typography>
-                            }
-                            action={
-                                <MoreVert/>
-                            }
-                            subheader={
-                                <Chip variant='outlined' color='warning' label="100000"></Chip>
-                            }
-                        />
-                        <CardActions>
-        
-                           
-                        </CardActions>
-                    </Card>
-                    <Card elevation={1} sx={{width:'300px'}}>
-                        <CardHeader
-                            avatar={
-                                <Insights fontSize='large' color='success'></Insights>
-                            }
-                            title={
-                                <Typography color='#2E7D32'>Total Sales</Typography>
-                            }
-                            action={
-                                <MoreVert/>
-                            }
-                            subheader={
-                                <Chip variant='outlined' color='success' label="100000"></Chip>
-                            }
-                        />
-                        <CardActions>
-        
-                           
-                        </CardActions>
-                    </Card>
-                </Stack>
-             </CardContent>
-          </Card>
+        </TabPanel>
+        <TabPanel value="3">
+        <Grid container spacing={2}>
+            <Grid item md={2} sm={6}>
+              <FormComponent helperText="Your preffered name" size="small" label="Name" fullWidth customIcon={<AccountCircle/>}/>
+            </Grid>
+            <Grid item md={2} sm={4}>
+            <FormComponent helperText="Your Contact" size="small" label="PhoneNumber" fullWidth customIcon={<Call/>}/>
+            </Grid>
+            <Grid item md={2} sm={4}>
+            <FormComponent helperText="Your Email Address" size="small" label="Email" fullWidth customIcon={<Email/>}/>
+            </Grid>
+            <Grid item md={2} sm={4}>
+            <FormComponent helperText="Your cars make or model" size="small" label="Make and Model" fullWidth customIcon={<DirectionsCar/>}/>
+            </Grid>
            
+            <Grid item md={2} sm={4}>
+            <FormComponent helperText="Preffered date of service" size="small" label="Date" fullWidth customIcon={<CalendarMonth/>}/>
+            </Grid>
+         </Grid>
+        </TabPanel>
+      </TabContext>
+        </Grid>
+        <Grid item>
+        <SpeedDial
+          ariaLabel="SpeedDial openIcon example"
+          sx={{ position: 'absolute', bottom: 16, right: 16 }}
+          icon={<Call openIcon={<Call/>} />}
+        >
           
-        </Grid>
-        <StyledGrid item xs={12} sm={5} sx={{marginTop:'auto'}}>
-        <Card>
-                <CardHeader
-                    
-                    action= {
-                        <></>
-                    }
-                    title={
-                        <>
-                        <FormControl  fullWidth='true'>
-                        <InputLabel id="demo-simple-select-autowidth-label">Station</InputLabel>
-                       <Select
-                              id="demo-simple-select-autowidth"
-                             
-                              label="station"
-                              value={station}
-                              onChange={handleStationChange} 
-                       >
-                           
-                       
-                           {stations.map((station, index) => (
-                               <MenuItem key={index} value={station}>
-                               {station}
-                               </MenuItem>
-                           ))}
-                       </Select>
-                       <FormHelperText>Sales by Products</FormHelperText>
-                   </FormControl>
-                   
-                   </>
-                    }
-                />
-            <CardContent>
-                
-                
-                    <Card fullWidth='true' elevation={0} sx={{flexGrow:1}}>
-                        <CardHeader
-                            action ={
-                                <RemoveRedEye color='primary'/>
-                            }
-                            avatar={
-                                <img src={images[activeStep].src} alt={`Image ${activeStep}`} style={{ width: '100px' }} />
-                            }
-                            title={
-                                <Typography variant="h6" sx={{fontFamily:'robot'}} fontWeight={3} fontStyle='bold' >{images[activeStep].tag}</Typography>
-                            }
-                            
-                            subheader ={
-                                
-                                <Chip label={`${images[activeStep].sales} sold`} icon={<CheckCircle/>} color="primary" variant='outlined' />
-                            }
-                            
-                        />
-                       
-                       <CardActions>
-                            
-                       </CardActions>
-                    </Card>
-                   
-                <MobileStepper
-                    variant="dots"
-                    steps={images.length}
-                    position="end"
-                    activeStep={activeStep}
-                    nextButton={
-                    <Button size="small" onClick={handleNext} disabled={activeStep === images.length - 1}>
-                        
-                        <KeyboardArrowRight />
-                    </Button>
-                    }
-                    backButton={
-                    <Button size="small" onClick={handleBack} disabled={activeStep === 0}>
-                        <KeyboardArrowLeft />
-                        
-                    </Button>
-                    }
+          {socialICons.map((action) => (
+            <SpeedDialAction
+              key={action.name}
+              icon={action.icon}
+              tooltipTitle={action.name}
             />
-            </CardContent>
-            </Card>
-         
-        
-      </StyledGrid>
-        <Grid item xs={12} sm={6}>
-            <Card fullWidth>
-                <CardContent>
-                <Timeline position="alternate">
-      <TimelineItem>
-        <TimelineOppositeContent
-          sx={{ m: 'auto 0' }}
-          align="right"
-          variant="body2"
-          color="success"
-        >
-          9:30 am
-        </TimelineOppositeContent>
-        <TimelineSeparator >
-          <TimelineConnector sx={{bgcolor:'#2E7D32'}}/>
-          <TimelineDot color='success'>
-            <PointOfSale/>
-          </TimelineDot>
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
-          <Typography sx={{fontSize:'15px'}} component="span" color='#2E7D32'>
-            Sale
-          </Typography>
-          <Typography color='#2E7D32'>kgas</Typography>
-          {/* <Stack direction='row' spacing={1}>
-         
-          <Chip variant='outlined' color='success' label='10kg'></Chip>
-          <Place color='success'/>
-          <Typography color='#2E7D32' sx={{fontSize:'12px'}}>Chuka filling Station</Typography>
-          </Stack> */}
-        
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineOppositeContent
-          sx={{ m: 'auto 0' }}
-          align="right"
-          variant="body2"
-          color="success"
-        >
-          9:30 am
-        </TimelineOppositeContent>
-        <TimelineSeparator >
-          <TimelineConnector sx={{bgcolor:'#2E7D32'}}/>
-          <TimelineDot color='success'>
-            <PointOfSale/>
-          </TimelineDot>
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
-          <Typography sx={{fontSize:'15px'}} component="span" color='#2E7D32'>
-            Sale
-          </Typography>
-          <Typography color='#2E7D32'>kgas</Typography>
-          {/* <Stack direction='row' spacing={1}>
-         
-          <Chip variant='outlined' color='success' label='10kg'></Chip>
-          <Place color='success'/>
-          <Typography color='#2E7D32' sx={{fontSize:'12px'}}>Chuka filling Station</Typography>
-          </Stack> */}
-        
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineOppositeContent
-          sx={{ m: 'auto 0' }}
-          align="right"
-          variant="body2"
-          color="success"
-        >
-          9:30 am
-        </TimelineOppositeContent>
-        <TimelineSeparator >
-          <TimelineConnector sx={{bgcolor:'#2E7D32'}}/>
-          <TimelineDot color='success'>
-            <PointOfSale/>
-          </TimelineDot>
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
-          <Typography sx={{fontSize:'15px'}} component="span" color='#2E7D32'>
-            Sale
-          </Typography>
-          <Typography color='#2E7D32'>kgas</Typography>
-          {/* <Stack direction='row' spacing={1}>
-         
-          <Chip variant='outlined' color='success' label='10kg'></Chip>
-          <Place color='success'/>
-          <Typography color='#2E7D32' sx={{fontSize:'12px'}}>Chuka filling Station</Typography>
-          </Stack> */}
-        
-        </TimelineContent>
-      </TimelineItem>
-      <TimelineItem>
-        <TimelineOppositeContent
-          sx={{ m: 'auto 0' }}
-          align="right"
-          variant="body2"
-          color="success"
-        >
-          9:30 am
-        </TimelineOppositeContent>
-        <TimelineSeparator >
-          <TimelineConnector sx={{bgcolor:'#2E7D32'}}/>
-          <TimelineDot color='success'>
-            <PointOfSale/>
-          </TimelineDot>
-          <TimelineConnector />
-        </TimelineSeparator>
-        <TimelineContent sx={{ py: '12px', px: 2 }}>
-          <Typography sx={{fontSize:'15px'}} component="span" color='#2E7D32'>
-            Sale
-          </Typography>
-          <Typography color='#2E7D32'>kgas</Typography>
-          {/* <Stack direction='row' spacing={1}>
-         
-          <Chip variant='outlined' color='success' label='10kg'></Chip>
-          <Place color='success'/>
-          <Typography color='#2E7D32' sx={{fontSize:'12px'}}>Chuka filling Station</Typography>
-          </Stack> */}
-        
-        </TimelineContent>
-      </TimelineItem>
-    </Timeline>
-                </CardContent>
-            </Card>
+        ))}
+      </SpeedDial>
         </Grid>
+        </Grid>
+     
+     
+    
+    
+   
+         <Grid container spacing={2} marginLeft={1}>
+      {brands.map((brand, i) => (
+        <Grid item sm={4} md={2} key={i}>
+          <CardMedia
+            component="img"
+            alt={brand}
+            src={brand}
+            sx={{ width: '100px', height: 'auto' }} // Set the width and height of the images
+          />
+        </Grid>
+      ))}
+    </Grid>
+    <Grid container spacing={2} marginLeft={1} sx={{backgroundColor:'#white',marginTop:'20px'}} justifyContent='center'>
+      <Grid item>
+          <Typography sx={{fontSize:'30px', fontWeight:'bold'}}>SHOP CARS BY BODY STYLE</Typography>
+          <Typography sx={{fontSize:'15px', fontWeight:'bold'}}>Get your dream car from Phenomenal Imports Global Limited in Nairobi</Typography>
+        </Grid>
+    </Grid>
+    <Grid container spacing={2} marginLeft={1} sx={{backgroundColor:'#white',marginTop:'20px'}}>
+      
+      {bodies.map((bodies, i) => (
+        <Grid item sm={4} md={3} key={i}>
+          <Card sx={{backgroundColor:'#4189B8'}}>
+            <CardHeader
+            avatar={
+              <Checkbox size='small' sx={{backgroundColor:'white'}}/>
+            }
+              title={
+                <Typography color='white '>{bodies.name}</Typography>
+              }
+              action ={
+                <CardMedia
+                component="img"
+                alt={bodies.name}
+                src={bodies.image}
+                sx={{ width: '150px', height: '50px' }} // Set the width and height of the images
+              />
+              }
+            />
+            
+          </Card>
+         
+        </Grid>
+      ))}
+       
+      
+      
+    </Grid>
+   
+    <Grid container spacing={2} marginLeft={1} sx={{backgroundColor:'#white',marginTop:'20px'}} justifyContent='center'>
+        <Grid item >
+              <Button size='large' variant='contained' startIcon={<SearchOff/>}>Search</Button>
       </Grid>
+        </Grid>
+        <Dash/>
+        <Grid container marginTop={10} marginBottom={3} elevation={5} sx={{backgroundColor:'#4189B8'}}>
+          <Grid sm={6} md={6}>
+            <img src="images/cars/service.jpeg" style={{height:'150px'}}/>
+            
+          </Grid>
+          
+          <Grid sm={6} md={6} >
+            <Stack spacing={2}>
+              <Typography sx={{fontWeight:'bold'}}>Show some love to your car</Typography>
+              <Typography sx={{fontWeight:'bold',textTransform:'capitalize'}}>Save Time and schedule service online</Typography>
+              <Button variant='outlined' color='success' startIcon={<CalendarMonthOutlined/>}>Schedule</Button>
+            </Stack>
+            </Grid>
+        </Grid>
+        <VehicleFinance/>
+        <BottomNavigation/>
+  
+ 
+        
+        <Footer color="primary"/>
+     
+     
+     
     </Box>
-    </>
+    </ThemeProvider>
+    
   );
 }
+
+
+function CarGridItem ({car}) {
+  return (
+    <Grid item md={3} sm={6}            
+    
+    >
+    
+      <Card elevation={3}
+        raised='true'
+        sx={{width:'300px'}}
+      >
+        <CardHeader
+       
+        title={
+          <Typography>{`${car.Make} ${car.Model}`}</Typography>
+        }
+        subheader ={
+         <Stack direction='row' spacing={1}>
+          <CameraAlt/>
+          <Typography>26</Typography>
+         </Stack>
+        }
+        // action={
+        //  <Stack direction='row'>
+        //   <Paid/>
+        //   <Typography>1,000,000</Typography>
+        //  </Stack>
+        // }
+        />
+        <CardMedia
+           sx={{height: 150,width:250}}
+           image={car.image}
+        />
+        <CardActions>
+          <Stack direction='row' alignContent='center'>
+           
+            <Stack direction='row'  spacing={0.2}>
+              <Button startIcon={<LocalGroceryStore/>}  size="small">Reserve</Button>
+              </Stack>
+              <Stack direction='row'  spacing={0.2}>
+              <Button  startIcon={<Visibility/>}  color='primary' size='small'>More Details</Button>
+              </Stack>
+          </Stack> 
+        </CardActions>
+      </Card>
+   
+    </Grid>
+  );
+}
+
+
+
+
+
+
