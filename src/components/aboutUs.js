@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, Grid, Stack, Typography } from "@mui/material";
+import { Card, CardContent, CardHeader, Container, Grid, Paper, Stack, Typography } from "@mui/material";
 import App_Bar from './appbar';
 import Footer from './footer'
 import VehicleFinance from './vehicleFinance'
@@ -6,10 +6,11 @@ import { AccountCircle, AutoAwesome, Recommend, Security } from "@mui/icons-mate
 export default function AboutUs () {
     return (
         
-        <Grid fluid alignItems ='center'>
+        <Container fixed>
             <App_Bar/>
+            <Grid container spacing={2}>
             <Grid item md={12} marginTop={10}>
-                <Typography sx={{marginLeft:'500px',fontSize:'30px'}}>ABOUT US</Typography>
+                <Typography sx={{marginLeft:'auto',fontSize:'30px'}} justifyContent='center'>ABOUT US</Typography>
                 <Stack alignItems='center' direction='row' justifyContent='center'>
                     <Typography sx={{fontWeight:'bold'}}>Phenomenal Imports Global Limited is a car dealership incorporated in Kenya dealing with importation and sale of new and
                 second-hand Motor Vehicles. At Phenomenal Imports Global Limited we pride ourselves in offering quality and carefully sourced Vehicles,
@@ -18,10 +19,10 @@ export default function AboutUs () {
                 to meet market demand.</Typography>
                 </Stack>
             </Grid>
-            <Typography sx={{marginLeft:'500px',fontSize:'20px'}}>CORE VALUES</Typography>
-            <Grid container spacing={2} justifyItems='center'>
-            <Grid item md={3}>
-                <Card elevation={2}>
+            <Grid item md={3} sm={12}>
+
+
+                <Card elevation={2} sx={{width:'auto'}}>
                     <CardContent>
                         <Recommend sx={{width:'100px',height:'100px',marginLeft:'70px'}}/>
                     </CardContent>
@@ -32,7 +33,7 @@ export default function AboutUs () {
                     />
                 </Card>
             </Grid>
-            <Grid item md={3}>
+            <Grid item md={3} sm={6}>
                 <Card elevation={2}>
                     <CardContent>
                         <Security sx={{width:'100px',height:'100px',marginLeft:'70px'}}/>
@@ -56,7 +57,7 @@ export default function AboutUs () {
                     />
                 </Card>
             </Grid>
-            <Grid item md={3}>
+            <Grid item md={3} sm={12    }>
                 <Card elevation={2}>
                     <CardContent>
                         <AutoAwesome sx={{width:'100px',height:'100px',marginLeft:'70px'}}/>
@@ -68,8 +69,8 @@ export default function AboutUs () {
                     />
                 </Card>
             </Grid>
-            <Grid container spacing={2} justifyItems='center' marginTop={3}>
-                <Grid item md={6}>
+            <Grid item md={6} marginTop={8}>
+                    <img src="images/phm-logo.png" alt="hhh"/>
                 </Grid>
                 <Grid item md={6}>
                     <Stack spacing={2}>
@@ -79,10 +80,88 @@ export default function AboutUs () {
                         <Typography>To be the Biggest & most Trusted Importers in Kenya and Globally, with A Legacy of Quality, Award-winning, family owned dealership of new and pre-owned vehicles with several locations across the city. Lowest prices and the best customer service guaranteed.</Typography>
                     </Stack>
                 </Grid>
+                <Grid item md={6}>
+                    <Stack spacing={2}>
+                        <Typography>OUR SERVICES</Typography>
+                       
+                       
+                            <ol>
+                                <li>Direct sale of brand new, foreign used and locally used Vehicles to both individuals and corporates.</li>
+                                <li>Imports on behalf - allowing customers to ship in their desired Vehicle without the hassle and logistical complexities involved.</li>
+                                <li>A service center offering Motor Vehicle maintenance services, such as respray, panel beating, upgrades, accessories and parts.</li>
+                                <li>Trade-ins to allow clients to conveniently upgrade from current Vehicle to a newer and fresher unit. The trade-in Vehicle then covers part of the purchase price for their desired car.</li>
+                            </ol>
+                        
+                    </Stack>
+                </Grid>
+                <Grid item md={6} marginTop={8}>
+                    <img src="images/phm-logo.png" alt="hhh"/>
+                </Grid>
+                <Grid item md={6} marginTop={8}>
+                    <img src="images/phm-logo.png" alt="hhh"/>
+                </Grid>
+                <Grid item md={6}>
+                    <Stack spacing={2}>
+                        <Typography>CORE VALUES</Typography>
+                       
+                       
+                            <ol>
+                        <li> Our Core Values</li>
+                        <li>Transparency.</li>
+                        <li>Professionalism.</li>
+                        <li>Accountability.</li>
+                        <li>Honesty.</li>
+                        <li>
+Integrity.</li>
+                        <li>Resilience</li>
+                        <li>Proficiency</li>
+
+
+
+
+
+
+                                
+                            </ol>
+                        
+                    </Stack>
+                </Grid>
+               
+               
+               
+                <Grid item md={6} marginLeft={2}>
+                    
+                    <Stack spacing={2}>
+                       
+
+
+
+
+                    
+                        
+                    </Stack>
+                </Grid>
+               
+                
+                
             </Grid>
-            </Grid>
+            
+            
+          
+          
+           
+           
+          
+               
+          
+           
+           
+                
+        
             <VehicleFinance/>
             <Footer/>
-        </Grid>
+            
+        </Container>
+        
     );
 }

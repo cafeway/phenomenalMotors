@@ -13,6 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
+import { Link as RouterLink } from 'react-router-dom';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Link} from '@mui/material';
@@ -186,7 +187,9 @@ export default function PrimarySearchAppBar() {
             >
              
                 <QuestionMark /><Link to="/about" style={{ textDecoration: 'none' }}>
-            <Typography  sx={{color:'white'}}>About us</Typography>
+                <Typography variant="h6" component={RouterLink} to="/about" style={{ textDecoration: 'none', color: 'white' }}>
+          About us
+        </Typography>
           </Link>
               
             </IconButton>
