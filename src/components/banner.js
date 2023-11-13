@@ -7,12 +7,17 @@ function Example(props) {
         {
             name: "BEST CAR DEALER IN KENYA",
             description: "Welcome to Phenomenal Imports Global Limited Jacaranda Close off Ridgeways Road",
-            image: "images/sitebanner.png"
+            image: "images/hilux.jpeg"
         },
         {
             name: "Trade in Your Car",
             description: "We'll provide you with a competitive trade-in offer based on your car's market value.",
-            image: "images/sitebanner.png"
+            image: "images/audi.webp"
+        },
+        {
+            name: "BEST CAR DEALER IN KENYA",
+            description: "Welcome to Phenomenal Imports Global Limited Jacaranda Close off Ridgeways Road",
+            image: "images/volkswagen.webp"
         },
         // {
         //     name: "Random Name #2",
@@ -63,7 +68,7 @@ function Item(props) {
         //         Check it out!
         //     </Button>
         // </Grid>
-        <Paper className="carousel-item"sx={{backgroundColor:'#F15F2C'}}><img src={props.item.image} alt={props.item.name} className="carousel-image"  />
+        <Paper className="carousel-item"sx={{backgroundColor:'#F15F2C'}}><img src={props.item.image} alt={props.item.name} className="carousel-image" style={{width:'100%',height:'auto'}} />
             
             <div className="carousel-text">
                 <h2 style={{fontSize:'40px'}}>{props.item.name}</h2>
