@@ -1,7 +1,10 @@
-import { Grid, Stack, Typography } from "@mui/material";
+import { Button, Card, CardActions, CardContent, Grid, Stack, Typography } from "@mui/material";
 import App_Bar from './appbar'
 import Footer from './footer'
 import VehicleFinance from "./vehicleFinance";
+import FormComponent from "./formComponent";
+import { AccountCircle, Call, CheckBox, DirectionsCarFilled, Email } from "@mui/icons-material";
+
 
 export default function TradeIn  () {
     return (
@@ -24,8 +27,42 @@ Text Phenomenalimportsglobal to 0729955227 / call us via 0729 955 227 and 0112 0
 Or fill the form below and find out the worth of your car..</Typography>
                     </Stack>
             </Grid>
-            <Grid></Grid>
-           
+          
+            <Grid item md={9} justifyContent='center' sx={{marginLeft:'auto',marginRight:'auto'}}>
+            
+            <Card sx={{backgroundColor:'#45BBED'}}>
+
+                <CardContent>
+                <Stack marginBottom={2}>
+            <Typography sx={{fontSize:'20px',fontWeight:'bold'}}>SELL YOUR CAR TODAY !!!</Typography>
+            <Typography sx={{fontSize:'20px',fontWeight:'bold'}}>Fill the below form. We will get back to you soon.</Typography>
+            </Stack>
+            <Stack spacing={2}>
+            <FormComponent helperText="Enter your name" size='small' label='Name' fullWidth='true' customIcon={<AccountCircle/>} sx={{marginBottom:'20px'}}/>
+                    <FormComponent helperText="Enter your Email" size='small' label='Email' fullWidth='true' customIcon={<Email/>} sx={{marginBottom:'10px',marginTop:'10px'}}/>
+                    <FormComponent helperText="Enter your PhoneNumber" size='small' label='PhoneNumber' fullWidth='true' customIcon={<Call/>} sx={{marginBottom:'10px',marginTop:'10px'}}/>
+                    <FormComponent helperText="Whats your cars make" size='small' label='Make' fullWidth='true' customIcon={<DirectionsCarFilled/>} sx={{marginBottom:'10px',marginTop:'10px'}}/>
+                    <FormComponent helperText="Enter your cars Model" size='small' label='Model' fullWidth='true' customIcon={<DirectionsCarFilled/>} sx={{marginBottom:'10px',marginTop:'10px'}}/>
+            </Stack>
+                    
+                </CardContent>
+                <CardActions>
+                    <Stack spacing={1}>
+                    <Stack direction='row' spacing={1}>
+                    <CheckBox defaultChecked label="I agree "/> <Typography>I agree to receive marketing emails from Phenomenal Imports Global Limited</Typography> 
+                        </Stack>
+                        <Stack direction='row' spacing={1} justifyContent="center">
+                        <Typography> Kindly note that these email include but are not limited to newsletters, promotional offers and announcements from Phenomenal Imports Global Limited. Each email you receive from us provides a one-click method to unsubscribe from the distribution list.</Typography>
+                    </Stack>
+                    </Stack>
+                   
+                   
+
+                  
+                </CardActions>
+            </Card>
+            <Button size="large" variant="contained">Submit</Button>
+            </Grid>
                     <VehicleFinance/>
                     <Footer/>
         </Grid>

@@ -9,9 +9,13 @@ import {
     label,
     fullWidth,
     customIcon,
+    bottom,
+    top,
   }) => {
     return (
       <TextField
+        marginBottom={bottom}
+        marginTop={top}
         helperText={helperText}
         size={size}
         label={label}
