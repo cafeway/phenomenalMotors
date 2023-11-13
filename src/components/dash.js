@@ -350,16 +350,17 @@ export default function BasicGrid() {
         </Grid>
         <Dash/>
         <Grid container marginTop={10} marginBottom={3} elevation={5} sx={{backgroundColor:'#4189B8'}}>
-          <Grid sm={6} md={6}>
-            <img src="images/cars/service.jpeg" style={{height:'150px'}}/>
+          <Grid sm={12} md={6} justifyContent='center'>
+         
+            <img src="images/schedule.jpg" style={{width:'100%',height:'500px'}}/>
             
           </Grid>
           
           <Grid sm={6} md={6} >
-            <Stack spacing={2}>
-              <Typography sx={{fontWeight:'bold'}}>Show some love to your car</Typography>
-              <Typography sx={{fontWeight:'bold',textTransform:'capitalize'}}>Save Time and schedule service online</Typography>
-              <Button variant='outlined' color='success' startIcon={<CalendarMonthOutlined/>}>Schedule</Button>
+          <Stack  spacing={2} sx={{backgroundColor:'#45BBED',height:'100%'}}>
+              <Typography sx={{fontWeight:'bold',fontSize:'30px'}}>Show some love to your car!</Typography>
+              <Typography sx={{fontWeight:'bold',textTransform:'capitalize',fontSize:'60px',marginBottom:'10px'}}>Save Time and schedule service online</Typography>
+              <Button variant='contained'  size='small' startIcon={<CalendarMonthOutlined/>} sx={{backgroundColor:'#F26737',marginTop:'auto'}}>Schedule</Button>
             </Stack>
             </Grid>
         </Grid>

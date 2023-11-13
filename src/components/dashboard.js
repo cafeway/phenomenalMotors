@@ -20,7 +20,7 @@ const cars = [
     "engine_type": "Gasoline",
     "transmission_type": "Automatic",
     "fuel_type": "Petrol",
-    "price": "62775USD",
+    "price": "6277500KES",
     "images": "images/cars/range-rover-velar.jpeg",
     "features": [
       "Stylish and aerodynamic design",
@@ -42,7 +42,7 @@ const cars = [
     "engine_type": "V8 Supercharged Petrol",
     "transmission_type": "Automatic",
     "fuel_type": "Petrol",
-    "price": "125000USD",
+    "price": "12500000KES",
     "images": "images/cars/range-rover-amaron.jpeg",
     "features": [
       "5.0L V8 Supercharged Petrol engine",
@@ -74,7 +74,7 @@ const cars = [
     "engine_type": "V8 Supercharged Petrol",
     "transmission_type": "Automatic",
     "fuel_type": "Petrol",
-    "price": "89,995 USD",
+    "price": "89,995 00KES",
     "images": "images/cars/range-rover-sport.jpeg",
      
     "features": [
@@ -95,7 +95,7 @@ const cars = [
     "engine_type": "V8 Supercharged Petrol",
     "transmission_type": "Automatic",
     "fuel_type": "Petrol",
-    "price": "183,500 USD",
+    "price": "183,500 00KES",
     "images": "images/cars/range-rover-sv.jpeg",
    
     "features": [
@@ -120,7 +120,7 @@ const cars = [
     "engine_type": "Gasoline",
     "transmission_type": "Manual",
     "fuel_type": "Petrol",
-    "price": "18,999 USD",
+    "price": "18,999 00KES",
     "images": "images/cars/ford-fiesta.jpeg",
     
     "features": [
@@ -143,7 +143,7 @@ const cars = [
     "engine_type": "Gasoline",
     "transmission_type": "Automatic",
     "fuel_type": "Petrol",
-    "price": "23,995 USD",
+    "price": "23,995 00KES",
     "images": "images/cars/ford-ecosport.jpeg",
    
     "features": [
@@ -166,7 +166,7 @@ const cars = [
     "engine_type": "Diesel",
     "transmission_type": "Automatic",
     "fuel_type": "Diesel",
-    "price": "32,995 USD",
+    "price": "32,995 00KES",
     "images": "images/cars/ford-ranger.jpeg",
     "features": [
       "Midsize pickup truck with a rugged design",
@@ -188,7 +188,7 @@ const cars = [
     "engine_type": "Gasoline",
     "transmission_type": "Automatic",
     "fuel_type": "Petrol",
-    "price": "45,995 USD",
+    "price": "45,995 00KES",
     "images": "images/cars/ford-explorer.jpeg",
     
     "features": [
@@ -210,7 +210,7 @@ const cars = [
     "engine_type": "Gasoline",
     "transmission_type": "Automatic",
     "fuel_type": "Petrol",
-    "price": "34,995 USD",
+    "price": "34,995 00KES",
     "images": "images/cars/subaru_sti.jpeg",
    
     "features": [
@@ -233,7 +233,7 @@ const cars = [
     "engine_type": "Gasoline",
     "transmission_type": "Manual",
     "fuel_type": "Petrol",
-    "price": "29,995 USD",
+    "price": "29,995 00KES",
     "images": "images/cars/subaruwrx.jpeg",
     "features":
     [
@@ -256,7 +256,7 @@ const cars = [
     "engine_type": "Turbocharged Gasoline",
     "transmission_type": "Automatic",
     "fuel_type": "Petrol",
-    "price": "39,995 USD",
+    "price": "39,995 00KES",
     "images": "images/cars/forester-xt.jpeg",
     "features": [
       "Compact SUV with a spacious and versatile interior",
@@ -279,7 +279,7 @@ const cars = [
     "engine_type": "Gasoline",
     "transmission_type": "Automatic",
     "fuel_type": "Petrol",
-    "price": "18,995 USD",
+    "price": "18,995 00KES",
     "images": "images/cars/forester-2016.jpeg",
     "features": [
       "Spacious and versatile interior",

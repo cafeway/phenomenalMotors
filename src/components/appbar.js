@@ -16,7 +16,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import { Link as RouterLink } from 'react-router-dom';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import { Link} from '@mui/material';
+import { Button, Link} from '@mui/material';
 import Footer from './footer'
 import { Call, Home, QuestionMark } from '@mui/icons-material';
 
@@ -159,8 +159,8 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed">
+    <Box sx={{ }}>
+      <AppBar position="fixed" sx={{backgroundColor:'#231F20'}}>
         <Toolbar>
           {/* <IconButton
             size="large"
@@ -171,24 +171,25 @@ export default function PrimarySearchAppBar() {
           >
             <MenuIcon />
           </IconButton> */}
-          <img src='images/phm-logo.png' style={{width:'200px'}}/>
+          <img src='images/new-logo.png' style={{width:'120px'}}/>
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
           <IconButton edge="start"size="large" aria-label="show 4 new mails" color="inherit">
               
-              <Home /><Typography>Home</Typography>
+              <Home /><Typography sx={{color:'#F15F2C'}}>Home</Typography>
             
           </IconButton>
           <IconButton
-              size="large"
+              edge='start'
+              size="small"
               aria-label="show 17 new notifications"
               color="inherit"
               component={Link}
               to='/about'
             >
              
-                <QuestionMark /><Link to="/about" style={{ textDecoration: 'none' }}>
-                <Typography variant="h6" component={RouterLink} to="/about" style={{ textDecoration: 'none', color: 'white' }}>
-          About us
+                <Link to="/about" style={{ textDecoration: 'none' }}>
+                <Typography variant="h6" component={RouterLink} to="/about" style={{ textDecoration: 'none', color: '#F15F2C' }}>
+          AboutUs
         </Typography>
           </Link>
               
@@ -203,10 +204,17 @@ export default function PrimarySearchAppBar() {
               color="inherit"
               
             >
-              <Call />
-            <Typography  sx={{color:'white'}}>Contact us</Typography>
+              
+            <Typography  sx={{color:'#F15F2C'}}>ContactUs</Typography>
          
             </IconButton>
+            <Button
+            variant='outlined'
+            size='large'
+            edge='end'
+            sx={{marginLeft:'100%',color:'Finances'}}
+            aria-label='get financed'
+            />
             
             </Box>
           

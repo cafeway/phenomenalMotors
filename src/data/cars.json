@@ -3,7 +3,7 @@
         {
           "car_id": "PHM014",
           "make": "Land Rover",
-          "model": "Range Rover Velar",
+          "model": "Range Rover Ve4ar",
           "year": 2023,
           "color": "Black",
           "vin": "5N1AT2MT0GC771237",
@@ -11,7 +11,7 @@
           "engine_type": "Gasoline",
           "transmission_type": "Automatic",
           "fuel_type": "Petrol",
-          "price": "62775USD",
+          "price": "6277500KES",
           "images": "images/range-rover-velar-2023-black-exterior.jpeg",
           "features": [
             "Stylish and aerodynamic design",
@@ -33,7 +33,7 @@
           "engine_type": "V8 Supercharged Petrol",
           "transmission_type": "Automatic",
           "fuel_type": "Petrol",
-          "price": "125000USD",
+          "price": "12500000KES",
           "image": "https://i.imgur.com/y7q3v1r.png",
           "features": [
             "5.0L V8 Supercharged Petrol engine",
@@ -65,7 +65,7 @@
           "engine_type": "V8 Supercharged Petrol",
           "transmission_type": "Automatic",
           "fuel_type": "Petrol",
-          "price": "89,995 USD",
+          "price": "89,995 00KES",
           "images": 
             "images/range-rover-sport-2023-santorini-black-exterior.jpeg",
            
@@ -87,7 +87,7 @@
           "engine_type": "V8 Supercharged Petrol",
           "transmission_type": "Automatic",
           "fuel_type": "Petrol",
-          "price": "183,500 USD",
+          "price": "183,500 00KES",
           "images": 
             "images/range-rover-sv-2023-blue-exterior.jpeg",
          
@@ -113,7 +113,7 @@
           "engine_type": "Gasoline",
           "transmission_type": "Manual",
           "fuel_type": "Petrol",
-          "price": "18,999 USD",
+          "price": "18,999 00KES",
           "images": 
             "images/ford-fiesta-2023-red-exterior.jpeg",
           
@@ -137,7 +137,7 @@
           "engine_type": "Gasoline",
           "transmission_type": "Automatic",
           "fuel_type": "Petrol",
-          "price": "23,995 USD",
+          "price": "23,995 00KES",
           "images": 
             "images/ford-ecosport-2023-white-exterior.jpeg",
          
@@ -161,7 +161,7 @@
           "engine_type": "Diesel",
           "transmission_type": "Automatic",
           "fuel_type": "Diesel",
-          "price": "32,995 USD",
+          "price": "32,995 00KES",
           "images": 
             "images/ford-ranger-2023-blue-exterior.jpeg",
            
@@ -185,7 +185,7 @@
           "engine_type": "Gasoline",
           "transmission_type": "Automatic",
           "fuel_type": "Petrol",
-          "price": "45,995 USD",
+          "price": "45,995 00KES",
           "images": 
             "https://i.imgur.com/xM5h54l.jpeg",
           
@@ -208,7 +208,7 @@
           "engine_type": "Gasoline",
           "transmission_type": "Automatic",
           "fuel_type": "Petrol",
-          "price": "34,995 USD",
+          "price": "34,995 00KES",
           "images": 
             "https://i.imgur.com/Yx4b2i9.jpeg",
          
@@ -232,7 +232,7 @@
           "engine_type": "Gasoline",
           "transmission_type": "Manual",
           "fuel_type": "Petrol",
-          "price": "29,995 USD",
+          "price": "29,995 00KES",
           "images": 
             "https://i.imgur.com/7J5x2hO.jpeg" 
           ,
@@ -257,7 +257,7 @@
           "engine_type": "Turbocharged Gasoline",
           "transmission_type": "Automatic",
           "fuel_type": "Petrol",
-          "price": "39,995 USD",
+          "price": "39,995 00KES",
           "images": 
             "https://i.imgur.com/x0v996L.jpeg"
           ,
@@ -282,7 +282,7 @@
           "engine_type": "Gasoline",
           "transmission_type": "Automatic",
           "fuel_type": "Petrol",
-          "price": "18,995 USD",
+          "price": "18,995 00KES",
           "images": 
             "https://i.imgur.com/Z9s4645.jpeg"
           ,

@@ -12,7 +12,7 @@ const Footer = ({color}) => {
             
             <Grid container spacing={2}>
                 <Grid item md={6} sx={{marginTop:'5px',marginBottom:'5px'}}>
-                    <img src='images/phm-logo.png' style={{width:'400px',marginTop:'7px'}}/>
+                    <img src='images/new-logo.png' style={{width:'400px',marginTop:'7px'}}/>
                 </Grid>
                 <Grid item md={6} sx={{marginTop:'50px',marginBottom:'5px'}}>
                     <Typography sx={{color:'black',fontWeight:'bold'}}>Copyright of  info@phenomenalimportsglobal.com</Typography>

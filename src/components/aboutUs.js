@@ -70,7 +70,7 @@ export default function AboutUs () {
                 </Card>
             </Grid>
             <Grid item md={6} marginTop={8}>
-                    <img src="images/phm-logo.png" alt="hhh"/>
+                    <img src="images/new-logo.png" alt="hhh"/>
                 </Grid>
                 <Grid item md={6}>
                     <Stack spacing={2}>
@@ -95,10 +95,10 @@ export default function AboutUs () {
                     </Stack>
                 </Grid>
                 <Grid item md={6} marginTop={8}>
-                    <img src="images/phm-logo.png" alt="hhh"/>
+                    <img src="images/new-logo.png" alt="hhh"/>
                 </Grid>
                 <Grid item md={6} marginTop={8}>
-                    <img src="images/phm-logo.png" alt="hhh"/>
+                    <img src="images/new-logo.png" alt="hhh"/>
                 </Grid>
                 <Grid item md={6}>
                     <Stack spacing={2}>
