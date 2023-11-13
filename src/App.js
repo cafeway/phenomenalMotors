@@ -37,6 +37,10 @@ function App() {
           <Route exact path='/contactus' element={<ContactUs/>}></Route>
           <Route exact path='/getfinanced' element={<Finance/>}></Route>
           <Route exact path='/tradein' element={<TradeIn/>}></Route>
+           {/* Redirect / and /index.html to /home */}
+        <Route exact path="/">
+          <Redirect to="/home" />
+        </Route>
         </Routes>
       </Router>
       </ThemeProvider>
