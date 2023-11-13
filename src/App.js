@@ -36,7 +36,7 @@ function App() {
           <Route exact path='/aboutus' element={<AboutUs/>}></Route>
           <Route exact path='/contactus' element={<ContactUs/>}></Route>
           <Route exact path='/getfinanced' element={<Finance/>}></Route>
-          <Route exact path='/tradeIn' element={<TradeIn/>}></Route>
+          <Route exact path='/tradein' element={<TradeIn/>}></Route>
         </Routes>
       </Router>
       </ThemeProvider>
