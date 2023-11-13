@@ -38,41 +38,12 @@ function Example(props) {
 function Item(props) {
     
     return (
-        // <Grid  container  elevation={2} sx={{marginTop:'70px'}}>
-        //     <Grid item sm={12} md={12}>
-        //     <Card>
-               
-        //        <CardHeader
-                   
-        //            title={
-        //                <CardMedia sx={{width: '500px',height:'300px'}}
-        //                image={props.item.image}
-        //            />
-        //            }
-        //            action = {
-        //                <Stack>
-        //                    <Typography>{props.item.name}</Typography>
-        //                </Stack>
-        //            }
-        //        />
-               
-                
-        //    </Card>
-        //     </Grid>
-            
-        
-        //     <h2>{props.item.name}</h2>
-        //     <p>{props.item.description}</p>
-
-        //     <Button className="CheckButton">
-        //         Check it out!
-        //     </Button>
-        // </Grid>
         <Paper className="carousel-item"sx={{backgroundColor:'#F15F2C'}}><img src={props.item.image} alt={props.item.name} className="carousel-image" style={{width:'100%',height:'auto'}} />
             
             <div className="carousel-text">
-                <h2 style={{fontSize:'40px'}}>{props.item.name}</h2>
-                <p style={{fontSize:'30px'}}>{props.item.description}</p>
+            <Typography variant="body1" sx={{ fontSize: { sm: '10px', md: '30px' } }}>{props.item.name}</Typography>
+            <Typography variant="body1" sx={{ fontSize: { sm: '10px', md: '30px' } }}>{props.item.description}</Typography> 
+               
                 
             </div>
         </Paper>

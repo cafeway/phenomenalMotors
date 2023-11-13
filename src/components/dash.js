@@ -191,17 +191,17 @@ export default function BasicGrid() {
       <Grid container>
         <Grid item md={12} sm={6}>
              <TabContext value={selectedTab}>
-    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <TabList onChange={handleTabChange} aria-label="lab API tabs example">
-          <Tab icon={<Search fontSize='small'/>} iconPosition='start' label={<Typography sx={{fontSize:'11px',fontWeight:'bold'}}>Search a car</Typography>} value="1"/>
+            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <TabList onChange={handleTabChange} aria-label="lab API tabs example">
+            <Tab icon={<Search fontSize='small'/>} iconPosition='start' label={<Typography sx={{fontSize:'11px',fontWeight:'bold'}}>Search a car</Typography>} value="1"/>
             <Tab icon={<CurrencyExchange fontSize='small' />} iconPosition='start' label={<Typography sx={{fontSize:'11px',fontWeight:'bold'}}>Trade in</Typography>} value="2"/>
             <Tab icon={<Build fontSize='small'/>} iconPosition='start' label={<Typography sx={{fontSize:'11px',fontWeight:'bold'}}>Service Your car</Typography>}value="3"/>
           </TabList>
         </Box>
         <TabPanel value="1">
-        `<Grid container spacing={2}>
-            
-        <Grid item md={3} sm={12}>
+        `<Grid container spacing={2} justifyContent="center">
+             
+             <Grid item md={3} sm={12}>
                <SelectComponent select size='small' helperText="Select a make" label="make" fullWidth data={models} icon={<DirectionsCar/>}  ></SelectComponent>
               </Grid>
               <Grid item md={3} sm={12}>
@@ -229,9 +229,11 @@ export default function BasicGrid() {
             </Grid>
         </TabPanel>
         <TabPanel value="2">
-         <Grid container spacing={2}>
+         <Grid container spacing={2} justifyContent="center">
             <Grid item md={2} sm={6}>
-              <FormComponent helperText="Your preffered name" size="small" label="Name" fullWidth customIcon={<AccountCircle/>}/>
+              <FormComponent helperText="Your preffered name" size="small" label="Name" fullWidth customIcon={<AccountCircle/>} sx={{
+                            
+              }}/>
             </Grid>
             <Grid item md={2} sm={4}>
             <FormComponent helperText="Your Contact" size="small" label="PhoneNumber" fullWidth customIcon={<Call/>}/>
@@ -251,7 +253,7 @@ export default function BasicGrid() {
          </Grid>
         </TabPanel>
         <TabPanel value="3">
-        <Grid container spacing={2}>
+        <Grid container spacing={2} justifyContent="center">
             <Grid item md={2} sm={6}>
               <FormComponent helperText="Your preffered name" size="small" label="Name" fullWidth customIcon={<AccountCircle/>}/>
             </Grid>
@@ -294,27 +296,25 @@ export default function BasicGrid() {
     
     
    
-         <Grid container spacing={2} marginLeft={1}>
+      <Grid container spacing={2} marginLeft={1}>
       {brands.map((brand, i) => (
-        <Grid item sm={4} md={2} key={i}>
+        <Grid item sm={4} md={3} key={i}>
           <CardMedia
             component="img"
             alt={brand}
             src={brand}
-            sx={{ width: '100px', height: 'auto' }} // Set the width and height of the images
+            sx={{ width: {md:'100px',sm:'15px',xm:'15px'}, height: 'auto' }} // Set the width and height of the images
           />
         </Grid>
       ))}
     </Grid>
     <Grid container spacing={2} marginLeft={1} sx={{backgroundColor:'#white',marginTop:'20px'}} justifyContent='center'>
-      <Grid item>
+      <Grid item md={12}>
           <Typography sx={{fontSize:'30px', fontWeight:'bold'}}>SHOP CARS BY BODY STYLE</Typography>
           <Typography sx={{fontSize:'15px', fontWeight:'bold'}}>Get your dream car from Phenomenal Imports Global Limited in Nairobi</Typography>
         </Grid>
-    </Grid>
-    <Grid container spacing={2} marginLeft={1} sx={{backgroundColor:'#white',marginTop:'20px'}}>
-      
-      {bodies.map((bodies, i) => (
+
+        {bodies.map((bodies, i) => (
         <Grid item sm={4} md={3} key={i}>
           <Card sx={{backgroundColor:'#4189B8'}}>
             <CardHeader
@@ -338,6 +338,10 @@ export default function BasicGrid() {
          
         </Grid>
       ))}
+    </Grid>
+    <Grid container spacing={2} marginLeft={1} sx={{backgroundColor:'#white',marginTop:'20px'}}>
+      
+      
        
       
       
@@ -357,7 +361,7 @@ export default function BasicGrid() {
           </Grid>
           
           <Grid sm={6} md={6} >
-          <Stack  spacing={2} sx={{backgroundColor:'#45BBED',height:'100%'}}>
+          <Stack  spacing={2} sx={{backgroundColor:'#45BBED',marginBottom:'10px',height:'100%'}}>
               <Typography sx={{fontWeight:'bold',fontSize:'30px'}}>Show some love to your car!</Typography>
               <Typography sx={{fontWeight:'bold',textTransform:'capitalize',fontSize:'60px',marginBottom:'10px'}}>Save Time and schedule service online</Typography>
               <Button variant='contained'  size='small' startIcon={<CalendarMonthOutlined/>} sx={{backgroundColor:'#F26737',marginTop:'auto'}}>Schedule</Button>
