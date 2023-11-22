@@ -26,6 +26,18 @@ import CarGrid  from './carsGrid';
 import Checkbox from '@mui/material/Checkbox';
 import Dashs from './dashboard';
 import Dash from './dashboard';
+import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+
+
+
+
+
+
+
+
+
+
 export default function BasicGrid() {
  
   
@@ -115,8 +127,13 @@ export default function BasicGrid() {
     "images/brands/subaru.jpg",
     "images/brands/volkswagen.jpg",
     "images/brands/volvo-Volvo.jpg",
-    
-    
+    "images/brands/hino.png",
+    "images/brands/isuzu.jpg",
+    "images/brands/foton.jpg",
+    "images/brands/mitsubishi.jpg",
+    "images/brands/chevy.jpg",
+    "images/brands/daihatsu.jpg",
+    "images/brands/royal.jpg",
   ]
   const bodies = [
       {
@@ -167,6 +184,8 @@ export default function BasicGrid() {
     {icon: <YouTube sx={{color:'red'}} />, name: 'youtube' },
     {icon: <Twitter sx={{color:'blue'}}/>, name: 'twitter'},
   ];
+  
+
   // icons
   const customIcon = <PaidOutlined color="primary" />;
   
@@ -275,20 +294,8 @@ export default function BasicGrid() {
       </TabContext>
         </Grid>
         <Grid item>
-        <SpeedDial
-          ariaLabel="SpeedDial openIcon example"
-          sx={{ position: 'absolute', bottom: 16, right: 16 }}
-          icon={<Call openIcon={<Call/>} />}
-        >
-          
-          {socialICons.map((action) => (
-            <SpeedDialAction
-              key={action.name}
-              icon={action.icon}
-              tooltipTitle={action.name}
-            />
-        ))}
-      </SpeedDial>
+       
+
         </Grid>
         </Grid>
      
@@ -297,13 +304,26 @@ export default function BasicGrid() {
     
    
       <Grid container spacing={2} marginLeft={1}>
+      {/* <AnimatePresence>
+      {brands.map((imageUrl, index) => (
+          <motion.img
+            key={index}
+            src={imageUrl}
+            alt={`Brand ${index}`}
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '-100%' }}
+            transition={{ duration: 1, ease: 'easeInOut' }}
+          />
+        ))}
+      </AnimatePresence> */}
       {brands.map((brand, i) => (
-        <Grid item sm={4} md={3} key={i}>
+        <Grid item  key={i}>
           <CardMedia
             component="img"
             alt={brand}
             src={brand}
-            sx={{ width: {md:'100px',sm:'15px',xm:'15px'}, height: 'auto' }} // Set the width and height of the images
+            sx={{ width: {md:'70px',sm:'15px',xm:'15px'}, height: 'auto' }} // Set the width and height of the images
           />
         </Grid>
       ))}

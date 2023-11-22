@@ -7,7 +7,7 @@ function Example(props) {
         {
             name: "BEST CAR DEALER IN KENYA",
             description: "Welcome to Phenomenal Imports Global Limited Jacaranda Close off Ridgeways Road",
-            image: "images/hilux.jpeg"
+            image: "images/audi.jpg"
         },
         {
             name: "Trade in Your Car",
@@ -38,7 +38,7 @@ function Example(props) {
 function Item(props) {
     
     return (
-        <Paper className="carousel-item"sx={{backgroundColor:'#F15F2C'}}><img src={props.item.image} alt={props.item.name} className="carousel-image" style={{width:'100%',height:'auto'}} />
+        <Card className="carousel-item"><img src={props.item.image} alt={props.item.name} className="carousel-image"  />
             
             <div className="carousel-text">
             <Typography variant="body1" sx={{ fontSize: { sm: '10px', md: '30px' } }}>{props.item.name}</Typography>
@@ -46,7 +46,7 @@ function Item(props) {
                
                 
             </div>
-        </Paper>
+        </Card>
     );
 }
 

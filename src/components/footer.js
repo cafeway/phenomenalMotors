@@ -1,21 +1,37 @@
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { AppBar, Fab, Grid, Stack, Toolbar } from '@mui/material';
-import { Facebook, Twitter, WhatsApp, YouTube } from '@mui/icons-material';
+import { Facebook, Instagram, Twitter, WhatsApp, YouTube } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 const Footer = ({color}) => {
   return (
-    <AppBar position="static" sx={{ top: 'auto', bottom: 0, color: color }}>
+    <AppBar position="static" sx={{ top: 'auto', bottom: 0, color: color,marginTop:'10px'}}>
       <Toolbar>
         
         <Box flexGrow={1}>
             
             <Grid container spacing={2}>
-                <Grid item md={6} sx={{marginTop:'5px',marginBottom:'5px'}}>
-                    <img src='images/new-logo.png' style={{width:'400px',marginTop:'7px'}}/>
+                <Grid item md={4} sx={{marginTop:'5px',marginBottom:'5px'}}>
+                    <img src='images/new-logo.png' style={{width:'200px'}}/>
                 </Grid>
-                <Grid item md={6} sx={{marginTop:'50px',marginBottom:'5px'}}>
-                    <Typography sx={{color:'black',fontWeight:'bold'}}>Copyright of  info@phenomenalimportsglobal.com</Typography>
+                <Grid item md={8} sx={{marginTop:'50px',marginBottom:'5px'}}>
+                  <Stack direction="row" spacing={2}>
+                    <Link to='www.google.com'>
+                    <WhatsApp sx={{color:'lightgreen'}}/>
+                    </Link>
+                    <Link to='https://www.instagram.com/phenomenal_imports_limited?r=nametag'>
+                      <Instagram/>
+                    </Link>
+                    <Link to="https://www.facebook.com/Phenomenalimportsglobal" >
+                      <Facebook/>
+                      
+                    </Link>
+                    <Link to="https://twitter.com/PhenomenalLTD?t=l6Fcoatq5G_jUmV7jVHtcw&s=09">
+                      <Twitter/>
+                    </Link>
+                  </Stack>
+                    <Typography sx={{color:'black',fontWeight:'bold'}}>Copyrights 2023 Phenomenal Imports Global. All Rights Reserved.| Privacy Policy & Terms Of Use | Designed & Developed by Ink It Solutions Ltd</Typography>
                 </Grid>
                 
             </Grid>

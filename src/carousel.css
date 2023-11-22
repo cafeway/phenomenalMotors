@@ -3,15 +3,25 @@
     margin-top: 60px;
     width: 100%;
     height: 550px; /* Set a fixed height for the carousel items */
+    background-image: url('');
 }
 
 .carousel-image {
-    width: 100%;
+    width:100%;
     height: 100%;
     object-fit: cover;
 }
 
 .carousel-text {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+}
+
+.carousel-form {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -19,6 +29,7 @@
     text-align: center;
     color: white;
 }
+
 
 /* Mobile responsiveness */
 @media (max-width: 767px) {

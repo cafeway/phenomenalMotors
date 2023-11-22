@@ -13,6 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom'; 
+import { DirectionsCar } from '@mui/icons-material';
 const pages = ['Home', 'AboutUs', 'Blog','ContactUs','GetFinanced', 'TradeIn'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -39,7 +40,7 @@ function ResponsiveAppBar() {
     <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <DirectionsCar sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap

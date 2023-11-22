@@ -1,70 +1,89 @@
-import { Card, CardContent, CardHeader, Container, Grid, Paper, Stack, Typography } from "@mui/material";
+import { Button, Card, CardContent, CardHeader, Container, Grid, IconButton, Paper, Stack, Typography } from "@mui/material";
 import App_Bar from './appbar';
 import Footer from './footer'
 import VehicleFinance from './vehicleFinance'
-import { AccountCircle, AutoAwesome, Recommend, Security } from "@mui/icons-material";
+import { AccountCircle, AutoAwesome, Call, Recommend, Security } from "@mui/icons-material";
 export default function AboutUs () {
     return (
         
-        <Container fixed>
-            <App_Bar/>
+       
+            
             <Grid container spacing={2}>
+            <App_Bar/>
             <Grid item md={12} marginTop={10}>
-                <Typography sx={{marginLeft:'auto',fontSize:'30px'}} justifyContent='center'>ABOUT US</Typography>
-                <Stack alignItems='center' direction='row' justifyContent='center'>
+                <Stack direction="row" justifyContent="center"><Typography sx={{fontSize:'30px'}} >ABOUT US</Typography></Stack>
+                <Stack  direction='row' justifyContent='center'>
                     <Typography sx={{fontWeight:'bold'}}>Phenomenal Imports Global Limited is a car dealership incorporated in Kenya dealing with importation and sale of new and
                 second-hand Motor Vehicles. At Phenomenal Imports Global Limited we pride ourselves in offering quality and carefully sourced Vehicles,
                 guided by our core values and a burning desire to satisfy customer needs. Vehicles in our dealership are sourced
                 from Japan, Thailand, United Kingdom, Australia, South Africa and host of other countries to ensure variety of units
                 to meet market demand.</Typography>
                 </Stack>
+                <Stack direction="row" justifyContent="center">
+                <Button variant="contained" endIcon={<Call/>} size="large">
+          GET IN TOUCH WITH US
+        </Button>
+                </Stack>
             </Grid>
             <Grid item md={3} sm={12}>
 
 
-                <Card elevation={2} sx={{width:'auto'}}>
+                <Card elevation={-2} sx={{width:'auto'}}>
                     <CardContent>
-                        <Recommend sx={{width:'100px',height:'100px',marginLeft:'70px'}}/>
+                       <Stack direction="row" justifyContent="center">
+                       <img src="images/reliability.png"/>
+                       </Stack>
                     </CardContent>
                     <CardHeader
                         title={
-                            <Typography sx={{fontWeight:'bold',fontSize:'20px',marginLeft:'70px'}}>Reliability</Typography>
+                            <Stack direction="row" justifyContent="center">
+                                <Typography sx={{fontWeight:'bold',fontSize:'20px'}}>Reliability</Typography>
+                            </Stack>
+                            
                         }
                     />
                 </Card>
             </Grid>
             <Grid item md={3} sm={6}>
-                <Card elevation={2}>
-                    <CardContent>
-                        <Security sx={{width:'100px',height:'100px',marginLeft:'70px'}}/>
-                    </CardContent>
+                <Card elevation={-2}>
+                <Stack direction="row" justifyContent="center">
+                       <img src="images/integrity.png"/>
+                       </Stack>
                     <CardHeader
                         title={
-                            <Typography sx={{fontWeight:'bold',fontSize:'20px',marginLeft:'70px'}}>Integrity</Typography>
+                            <Stack direction="row" justifyContent="center">
+                            <Typography sx={{fontWeight:'bold',fontSize:'20px'}}>Integrity</Typography>
+                            </Stack>
                         }
                     />
                 </Card>
             </Grid>
             <Grid item md={3}>
-                <Card elevation={2}>
-                    <CardContent>
-                        <AccountCircle sx={{width:'100px',height:'100px',marginLeft:'70px'}}/>
-                    </CardContent>
+                <Card elevation={-2}>
+                <Stack direction="row" justifyContent="center">
+                       <img src="images/customer-service.png"/>
+                       </Stack>
                     <CardHeader
                         title={
-                            <Typography sx={{fontWeight:'bold',fontSize:'20px',marginLeft:'70px'}}>Customer Care</Typography>
+                            <Stack direction="row" justifyContent="center">
+                                 <Typography sx={{fontWeight:'bold',fontSize:'20px'}}>Customer Care</Typography>
+                            </Stack>
+                           
                         }
                     />
                 </Card>
             </Grid>
             <Grid item md={3} sm={12    }>
-                <Card elevation={2}>
-                    <CardContent>
-                        <AutoAwesome sx={{width:'100px',height:'100px',marginLeft:'70px'}}/>
-                    </CardContent>
+                <Card elevation={-2}>
+                <Stack direction="row" justifyContent="center">
+                       <img src="images/customer-satisfaction.png"/>
+                       </Stack>
                     <CardHeader
                         title={
-                            <Typography sx={{fontWeight:'bold',fontSize:'20px',marginLeft:'70px'}}>Satisfaction</Typography>
+                            <Stack direction="row" justifyContent="center">
+                                 <Typography sx={{fontWeight:'bold',fontSize:'20px'}}>Satisfaction</Typography>
+                            </Stack>
+                           
                         }
                     />
                 </Card>
@@ -112,7 +131,7 @@ export default function AboutUs () {
                         <li>Accountability.</li>
                         <li>Honesty.</li>
                         <li>
-Integrity.</li>
+                            Integrity.</li>
                         <li>Resilience</li>
                         <li>Proficiency</li>
 
@@ -142,7 +161,8 @@ Integrity.</li>
                     </Stack>
                 </Grid>
                
-                
+                <VehicleFinance/>
+                <Footer/>
                 
             </Grid>
             
@@ -158,10 +178,9 @@ Integrity.</li>
            
                 
         
-            <VehicleFinance/>
-            <Footer/>
+         
             
-        </Container>
+    
         
     );
 }
