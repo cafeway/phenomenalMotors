@@ -90,8 +90,23 @@ function ResponsiveAppBar() {
             >
                 {pages.map((page) => (
               <MenuItem key={page} onClick={handleCloseNavMenu}>
-                <Link to={`/${page.toLowerCase()}`} style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <Typography textAlign="center">{page}</Typography>
+                  
+                <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Typography textAlign="center">Home</Typography>
+                </Link>
+               
+                
+                <Link to={'/aboutus'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Typography textAlign="center">About us</Typography>
+                </Link>
+                <Link to={'/contactus'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Typography textAlign="center">Contac tUs</Typography>
+                </Link>
+                <Link to={'/getfinanced'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Typography textAlign="center">Get Financed</Typography>
+                </Link>
+                <Link to={'/tradein'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <Typography textAlign="center">TradeIn</Typography>
                 </Link>
               </MenuItem>
             ))}
