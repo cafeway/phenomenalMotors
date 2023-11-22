@@ -1,17 +1,19 @@
+// theme.js
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#1976D2', // Change the primary color
+      main: '#1976D2', // Change this to your desired primary color
     },
     secondary: {
-      main: '#E91E63', // Change the secondary color
+      main: '#E91E63', // Change this to your desired secondary color
     },
-    other: {
-        main: '#231F20'
-    }
   },
+  typography: {
+    fontFamily: 'Roboto, sans-serif', // Specify your desired font family
+  },
+  spacing: 8, // Set the default spacing unit (8 pixels in this case)
 });
 
 export default theme;

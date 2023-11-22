@@ -12,7 +12,7 @@ function Example(props) {
         {
             name: "Trade in Your Car",
             description: "We'll provide you with a competitive trade-in offer based on your car's market value.",
-            image: "images/audi.webp"
+            image: "images/lexus.jpg"
         },
         {
             name: "BEST CAR DEALER IN KENYA",

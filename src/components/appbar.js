@@ -14,6 +14,8 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom'; 
 import { DirectionsCar } from '@mui/icons-material';
+import { makeStyles, useScrollTrigger } from '@mui/material';
+import { useEffect } from 'react';
 const pages = ['Home', 'AboutUs', 'Blog','ContactUs','GetFinanced', 'TradeIn'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
@@ -36,10 +38,13 @@ function ResponsiveAppBar() {
     setAnchorElUser(null);
   };
 
+  const trigger = useScrollTrigger({
+    threshold:'550'
+  });
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" sx={{backgroundColor:'transparent'}}>
       <Container maxWidth="xl">
-        <Toolbar disableGutters>
+        <Toolbar disableGutters sx={{backgroundColor:'transparent'}}>
           <DirectionsCar sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
@@ -90,7 +95,7 @@ function ResponsiveAppBar() {
             >
                 {pages.map((page) => (
               <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  
+
                 <Link to={'/'} style={{ textDecoration: 'none', color: 'inherit' }}>
                   <Typography textAlign="center">Home</Typography>
                 </Link>
@@ -102,8 +107,8 @@ function ResponsiveAppBar() {
                 <Link to={'/contactus'} style={{ textDecoration: 'none', color: 'inherit' }}>
                   <Typography textAlign="center">Contac tUs</Typography>
                 </Link>
-                <Link to={'/getfinanced'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                  <Typography textAlign="center">Get Financed</Typography>
+                <Link to={'/getfinanced'}  style={{ textDecoration: 'none' }}>
+                  <Typography color="primary" textAlign="center">Get Financed</Typography>
                 </Link>
                 <Link to={'/tradein'} style={{ textDecoration: 'none', color: 'inherit' }}>
                   <Typography textAlign="center">TradeIn</Typography>
