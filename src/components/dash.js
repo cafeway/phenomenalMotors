@@ -29,9 +29,7 @@ import Dash from './dashboard';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import SearchCar from './searchCar';
-
-
-
+import TradeIn from './tradeIn'
 
 
 
@@ -196,6 +194,7 @@ export default function BasicGrid() {
           />
         ))}
       </AnimatePresence> */}
+      <TradeIn/>
       {brands.map((brand, i) => (
         <Grid item  key={i}>
           <CardMedia

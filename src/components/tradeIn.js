@@ -10,10 +10,10 @@ export default function TradeIn  () {
     return (
         <Grid container>
             <App_Bar/>
-            <Grid item md={12} marginTop={8} marginBottom={8}>
-                <img src="images/tradeIn-1.jpg" style={{width:'100%'}}/>
+            <Grid item md={4} marginTop={8} marginBottom={8}>
+                <img src="images/tradein.png" style={{width:'100%'}}/>
             </Grid>
-            <Grid item md={12}>
+            <Grid item md={8}  marginTop={8} marginBottom={8}>
                 <Stack spacing={2} direction='row' justifyContent={'center'}>
                     <Stack><Typography sx={{fontWeight:'bold',fontSize:'30px'}}>KENYAN USED</Typography>
                         
@@ -30,7 +30,7 @@ Or fill the form below and find out the worth of your car..</Typography>
           
             <Grid item md={9} justifyContent='center' sx={{marginLeft:'auto',marginRight:'auto'}}>
             
-            <Card sx={{backgroundColor:'#45BBED'}}>
+            <Card sx={{backgroundColor:'#F15F2C'}} elevation={5}>
 
                 <CardContent>
                 <Stack marginBottom={2}>
@@ -61,10 +61,10 @@ Or fill the form below and find out the worth of your car..</Typography>
                   
                 </CardActions>
             </Card>
-            <Button size="large" variant="contained">Submit</Button>
+            <Button fullWidth sx={{backgroundColor:'#F15F2C',marginTop:'10px',marginBottom:'20px'}} size="large" variant="contained">Submit</Button>
             </Grid>
-                    <VehicleFinance/>
-                    <Footer/>
+                    {/* <VehicleFinance/>
+                    <Footer/> */}
         </Grid>
     );
 }
