@@ -28,7 +28,7 @@ import Dashs from './dashboard';
 import Dash from './dashboard';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-
+import SearchCar from './searchCar';
 
 
 
@@ -70,44 +70,7 @@ export default function BasicGrid() {
 
 
 
-  const makes = [
-    {
-      name: 'pradotx'
-    }, 
-    {
-      name: 'pradoV8'
-    },
-    {
-      name: 'urban cruiser'
-    },
-  ]
-
-  const models = 
-  [
-    {name:"Toyota"},
-    {name: "Mercedes"},
-    {name: "BMW"},
-  ]
-
-  const fuelTypes = 
-  [
-    {
-      name: "Gasoline"
-    },
-    {
-      name: "Petrol"
-    },
-    {
-      name: "Diesel"
-    },
-    {
-      name: "Electricity"
-    },
-    {
-      name: "Ethanol"
-    },
-  ]
-
+  
   const brands = [
     "images/brands/audi-Audi.jpg",
     "images/brands/benx.jpg",
@@ -202,102 +165,18 @@ export default function BasicGrid() {
   
 
   return (
-    <ThemeProvider theme={theme}>
-      <Box>
+    
+    <Grid container>
        <App_Bar/>
        <Banner/>
      
-      <Grid container>
-        <Grid item md={12} sm={6}>
-             <TabContext value={selectedTab}>
-            <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-            <TabList onChange={handleTabChange} aria-label="lab API tabs example">
-            <Tab icon={<Search fontSize='small'/>} iconPosition='start' label={<Typography sx={{fontSize:'11px',fontWeight:'bold'}}>Search a car</Typography>} value="1"/>
-            <Tab icon={<CurrencyExchange fontSize='small' />} iconPosition='start' label={<Typography sx={{fontSize:'11px',fontWeight:'bold'}}>Trade in</Typography>} value="2"/>
-            <Tab icon={<Build fontSize='small'/>} iconPosition='start' label={<Typography sx={{fontSize:'11px',fontWeight:'bold'}}>Service Your car</Typography>}value="3"/>
-          </TabList>
-        </Box>
-        <TabPanel value="1">
-        `<Grid container spacing={2} justifyContent="center">
-             
-             <Grid item md={3} sm={12}>
-               <SelectComponent select size='small' helperText="Select a make" label="make" fullWidth data={models} icon={<DirectionsCar/>}  ></SelectComponent>
-              </Grid>
-              <Grid item md={3} sm={12}>
-               <SelectComponent select size='small' helperText="Select a model" label="model" fullWidth data={makes} icon={<DirectionsCar/>}  ></SelectComponent>
-              </Grid>
-                <Grid item md={3} sm={12}>
-                  <FormComponent helperText="Minimum price" size="small" label="Min Price" fullWidth customIcon={customIcon}/>
-              </Grid>
-              <Grid item md={3} sm={12}>
-              <FormComponent helperText="Minimum price" size="small" label="Max Price" fullWidth customIcon={customIcon}/>
-              </Grid>
-              <Grid item md={3} sm={12}>
-              <SelectComponent select size='small' helperText="Type of Fuel" label="Fuel Type" fullWidth data={fuelTypes} icon={<LocalGasStation/>}></SelectComponent>
-              </Grid>
-              <Grid item md={3} sm={12}>
-               <SelectComponent select size='small' helperText="Choose a body type" label="bodyType" fullWidth data={bodyTypes} icon={<DirectionsCar/>}></SelectComponent>
-
-              </Grid>
-              <Grid item md={3} sm={12}>
-              <FormComponent helperText="Minimum year" size="small" label="Min Year" fullWidth customIcon={<CalendarMonth/>}/>
-              </Grid>
-              <Grid item md={3} sm={12}>
-              <FormComponent helperText="Maximum year" size="small" label="Max Year" fullWidth customIcon={<CalendarMonth/>}/>
-              </Grid>
-            </Grid>
-        </TabPanel>
-        <TabPanel value="2">
-         <Grid container spacing={2} justifyContent="center">
-            <Grid item md={2} sm={6}>
-              <FormComponent helperText="Your preffered name" size="small" label="Name" fullWidth customIcon={<AccountCircle/>} sx={{
-                            
-              }}/>
-            </Grid>
-            <Grid item md={2} sm={4}>
-            <FormComponent helperText="Your Contact" size="small" label="PhoneNumber" fullWidth customIcon={<Call/>}/>
-            </Grid>
-            <Grid item md={2} sm={4}>
-            <FormComponent helperText="Your Email Address" size="small" label="Email" fullWidth customIcon={<Email/>}/>
-            </Grid>
-            <Grid item md={2} sm={4}>
-            <FormComponent helperText="Your cars make or model" size="small" label="Make and Model" fullWidth customIcon={<DirectionsCar/>}/>
-            </Grid>
-            <Grid item md={2} sm={4}>
-            <FormComponent  helperText="Year of manufacturing" size="small" label="Year" fullWidth customIcon={<CalendarMonth/>}/>
-            </Grid>
-            <Grid item md={2} sm={4}>
-            <FormComponent helperText="Licence plate" size="small" label="License plate" fullWidth customIcon={<DirectionsCar/>}/>
-            </Grid>
-         </Grid>
-        </TabPanel>
-        <TabPanel value="3">
-        <Grid container spacing={2} justifyContent="center">
-            <Grid item md={2} sm={6}>
-              <FormComponent helperText="Your preffered name" size="small" label="Name" fullWidth customIcon={<AccountCircle/>}/>
-            </Grid>
-            <Grid item md={2} sm={4}>
-            <FormComponent helperText="Your Contact" size="small" label="PhoneNumber" fullWidth customIcon={<Call/>}/>
-            </Grid>
-            <Grid item md={2} sm={4}>
-            <FormComponent helperText="Your Email Address" size="small" label="Email" fullWidth customIcon={<Email/>}/>
-            </Grid>
-            <Grid item md={2} sm={4}>
-            <FormComponent helperText="Your cars make or model" size="small" label="Make and Model" fullWidth customIcon={<DirectionsCar/>}/>
-            </Grid>
-           
-            <Grid item md={2} sm={4}>
-            <FormComponent helperText="Preffered date of service" size="small" label="Date" fullWidth customIcon={<CalendarMonth/>}/>
-            </Grid>
-         </Grid>
-        </TabPanel>
-      </TabContext>
-        </Grid>
+      
+        <SearchCar/>
         <Grid item>
        
 
         </Grid>
-        </Grid>
+      
      
      
     
@@ -397,8 +276,7 @@ export default function BasicGrid() {
      
      
      
-    </Box>
-    </ThemeProvider>
+      </Grid>
     
   );
 }

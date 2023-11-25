@@ -39,13 +39,13 @@ function ResponsiveAppBar() {
   };
 
   const trigger = useScrollTrigger({
-    threshold:'550'
+    threshold:'450'
   });
   return (
-    <AppBar position="fixed" sx={{backgroundColor:'transparent'}}>
+    <AppBar position="fixed" sx={{backgroundColor: trigger?'#F15F2C':'transparent',transition: 'background-color 0.3s ease'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters sx={{backgroundColor:'transparent'}}>
-          <DirectionsCar sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+         
           <Typography
             variant="h6"
             noWrap
@@ -61,7 +61,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            PHENOMENAL
+            PHENOMENALMOTORS
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -153,7 +153,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+              <img src="images/keys.png" style={{width:'50px',height:'50px'}}/>
               </IconButton>
             </Tooltip>
             <Menu

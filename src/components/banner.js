@@ -27,11 +27,15 @@ function Example(props) {
     ];
 
     return (
-        <Carousel>
-            {
-                items.map((item, i) => <Item key={i} item={item} />)
-            }
-        </Carousel>
+       
+        <Grid item md={12} >
+            <Carousel>
+                {
+                    items.map((item, i) => <Item key={i} item={item} />)
+                }
+            </Carousel>
+        </Grid>
+    
     );
 }
 
