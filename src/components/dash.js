@@ -385,7 +385,7 @@ export default function BasicGrid() {
             </Grid>
         </Grid>
         <VehicleFinance/>
-        <BottomNavigation/>
+      <TradeIn/>
   
  
         
